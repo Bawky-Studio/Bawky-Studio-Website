@@ -1,0 +1,154 @@
+{
+    "nav": {
+      "home": "Home",
+      "games": "Games",
+      "team": "Team",
+      "about": "About"
+    },
+    "games": {
+      "title": "Projects",
+      "main": "Main Project",
+      "side": "Side Project",
+      "viewDetails": "View Details",
+      "playNow": "Play Now",
+      "projects": {
+        "betdown_duel": {
+          "title": "BETDOWN: DUEL & BET",
+          "description": "A Western-style micro battle + betting hybrid. Bawky Studio’s main project"
+        },
+        "fataldraw": {
+          "title": "BETDOWN: FATALDRAW",
+          "description": "Shoot your risk and settle your fate in the Western world of bets"
+        }
+      }
+    },
+    "events": {
+      "title": "COMMUNITY EVENTS",
+      "intro": "Check out Bawky Studio's interactive experimental events!<br>Where data meets play and your choices become statistics.",
+      "back": "← Back to Main",
+      "cards": {
+        "avg-number": {
+          "title": "Guess the Average",
+          "desc": "Two winners will be decided in one event.<br>1: The player <strong>closest to the overall average</strong><br>2: The player who picked the <strong>lowest unique number</strong><br>Both results are automatically calculated and revealed to everyone.",
+          "status": "active",
+          "link": "/events/avg-number",
+          "image": "/images/event-average.png"
+        },
+        "quickdraw": {
+          "title": "QUICKDRAW DEMO CHAMPIONSHIP (QDC)",
+          "desc": "Become the ultimate QUICKDRAW champion!",
+          "status": "upcoming",
+          "link": "#",
+          "image": "/images/event-qdc.png"
+        },
+        "mystery": {
+          "title": "Mystery",
+          "desc": "Stay tuned for the next experimental event!",
+          "status": "upcoming",
+          "link": "#",
+          "image": "/images/event-mystery.png"
+        }
+      },
+      "avg-number": {
+      "title": "Guess the Average",
+      "description": "The participant whose number is closest to the overall average,<br>and the one who chose the smallest unique number<br>will be officially recorded in the Bawky Studio archives.",
+      "timer": {
+        "label": "Time remaining until event ends",
+        "ended": "The event has ended."
+      },
+      "eventEnded": {
+        "title": "Result"
+      },
+      "guidelines": {
+        "title": "📢 Before You Participate",
+        "rules": [
+          "Each IP address can participate only once.",
+          "Valid number range: 1 - 100,000.",
+          "Once you click 'Submit', your entry will be finalized immediately.",
+          "If your YouTube ID is entered incorrectly, your record may not be saved."
+        ]
+        },
+        "form": {
+          "youtubePlaceholder": "YouTube ID (@xxxx)",
+          "numberPlaceholder": "Enter your number (1–100000)",
+          "submit": "Submit",
+          "submitting": "Submitting...",
+          "back": "← Back to Event List"
+        },
+        "errors": {
+          "missingYoutube": "Please enter your YouTube ID (@xxxx).",
+          "invalidYoutube": "Invalid YouTube ID format. It must start with '@'.",
+          "missingNumber": "Please enter a number.",
+          "notNumber": "Only numeric values are allowed.",
+          "outOfRange": "Your number must be between 1 and 100000.",
+          "serverError": "A server error has occurred."
+        },
+        "success": {
+          "message": "Your entry has been submitted successfully!"
+        },
+        "results": {
+          "overallAverage": {
+            "label": "Total Average",
+            "value": "25,713.81"
+          },
+          "labels": {
+            "participantId": "Participant ID",
+            "submittedNumber": "Submitted Number",
+            "note": "Note"
+          },
+          "avgClosest": {
+            "title": "Closest Average",
+            "username": "@bookarena-iv1wg",
+            "number": "25,624",
+            "description": "Only 89 away from the average"
+          },
+          "lowestUnique": {
+            "title": "Smallest Unique",
+            "username": "@user-asdfghjklzxcvbn",
+            "number": "2",
+            "description": "Really Small"
+          }
+        }
+      }
+    },
+    "about": {
+      "heroTitle": "ABOUT US",
+      "intro": {
+        "text": "<strong>Bawky Studio</strong> is a small team with a big love for making games that hit differently. We believe that <accent>humor</accent> and <accent>personality</accent> are what make a game truly shine."
+      },
+      "philosophy": {
+        "title": "⚡ Philosophy",
+        "text": "We craft games that make players laugh, shout, and question everything. If it’s weird but fun. that’s our territory."
+      },
+      "focus": {
+        "title": "🎮 Focus",
+        "text": "Multiplayer, mind games, and experimental systems that make every session unpredictable. just how we like it."
+      },
+      "identity": {
+        "title": "🐔 MOTTO",
+        "text": "Make game development fun!"
+      },
+      "team": {
+        "title": "MEMBERS",
+        "BawkZilla": "Opportunities are made, not given",
+        "Hyuki": "My future self is cheering for who i am today",
+        "Triceps": "No Excuses",
+        "Ika": "Communication, Compromise, Consideration",
+        "LittleBread": "I am bread"
+      },
+      "promise": {
+        "title": "OUR PROMISE",
+        "text": "“We create games that are as fun to make as they are to play”"
+      },
+      "join": {
+        "title": "JOIN OUR TEAM",
+        "text": "We're always on the lookout for developers, artists, and weird minds who love making unconventional games. If you think you’d fit right in, we’d love to hear from you.",
+        "button": "APPLY NOW →"
+      },
+      "back": "← Back to Home"
+    },
+    "teams":{
+      "title": "<h2>Thanks for applying!<br>Hover over each role to see more details.</h2><br><strong>Recruitment is currently closed."
+    }
+  }
+  

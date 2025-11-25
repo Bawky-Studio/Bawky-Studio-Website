@@ -1,0 +1,154 @@
+{
+    "nav": {
+      "home": "홈",
+      "games": "게임",
+      "team": "팀",
+      "about": "소개"
+    },
+    "games": {
+      "title": "프로젝트",
+      "main": "메인 프로젝트",
+      "side": "사이드 프로젝트",
+      "viewDetails": "자세히 보기",
+      "playNow": "지금 플레이",
+      "projects": {
+        "betdown_duel": {
+          "title": "BETDOWN: DUEL & BET",
+          "description": "서부식 마이크로 배틀 + 베팅이 결합된 스튜디오 메인 프로젝트"
+        },
+        "fataldraw": {
+          "title": "BETDOWN: FATALDRAW",
+          "description": "서부 도박 세계에서 리스크를 쏘고, 운명을 정산하라"
+        }
+      }
+    },
+    "events": {
+      "title": "COMMUNITY EVENTS",
+      "intro": "Bawky Studio가 주최하는 참여형 실험 이벤트를 확인해보세요.<br>데이터와 게임이 만나는 순간, 당신의 선택이 통계가 됩니다.",
+      "back": "← 홈으로 돌아가기",
+      "cards": {
+        "avg-number": {
+          "title": "Guess the Average",
+          "desc": "한 이벤트 안에서 두 가지 승자가 결정됩니다.<br>1: 전체 입력값의 <strong>평균에 가장 가까운 사람</strong><br>2: <strong>중복되지 않은 수 중 가장 작은 수</strong>를 선택한 사람<br>두 조건 모두 자동으로 계산되어 결과가 공개됩니다.",
+          "status": "active",
+          "link": "/events/avg-number",
+          "image": "/images/event-average.png"
+        },
+        "quickdraw": {
+          "title": "QUICKDRAW DEMO CHAMPIONSHIP (QDC)",
+          "desc": "QUICKDRAW 최강자가 되어보세요!",
+          "status": "upcoming",
+          "link": "#",
+          "image": "/images/event-qdc.png"
+        },
+        "mystery": {
+          "title": "Mystery",
+          "desc": "다가올 이벤트를 기대해주세요!",
+          "status": "upcoming",
+          "link": "#",
+          "image": "/images/event-mystery.png"
+        }
+      },
+      "avg-number": {
+        "title": "Guess the Average",
+        "description": "입력된 숫자들의 평균에 가장 가까운 사람,<br>그리고 중복되지 않은 수 중 가장 작은 값을 입력한 사람이<br>Bawky Studio 공식 기록에 등재됩니다.",
+        "timer": {
+          "label": "이벤트 종료까지 남은 시간",
+          "ended": "이벤트가 종료되었습니다."
+        },
+        "eventEnded": {
+          "title": "이벤트 결과"
+        },
+        "guidelines": {
+          "title": "📢 참여 전 안내사항",
+          "rules": [
+            "IP당 1회만 참여 가능합니다.",
+            "입력 가능한 숫자 범위는 1 ~ 100,000 입니다.",
+            "참여하기를 누르는 즉시 참여가 완료됩니다.",
+            "유튜브 id를 잘못 입력하면 등재되지 않을 수 있습니다."
+          ]
+        },
+        "form": {
+          "youtubePlaceholder": "유튜브 아이디 (@xxxx)",
+          "numberPlaceholder": "숫자를 입력하세요 (1~100000)",
+          "submit": "참여하기",
+          "submitting": "전송 중...",
+          "back": "← 이벤트 목록으로 돌아가기"
+        },
+        "errors": {
+          "missingYoutube": "유튜브 아이디(@xxxx)를 입력해주세요.",
+          "invalidYoutube": "유효한 유튜브 아이디 형식이 아닙니다. (@로 시작해야 합니다)",
+          "missingNumber": "숫자를 입력해주세요.",
+          "notNumber": "숫자만 입력할 수 있습니다.",
+          "outOfRange": "입력 가능한 숫자는 1 이상 100000 이하입니다.",
+          "serverError": "서버 오류가 발생했습니다."
+        },
+        "success": {
+          "message": "참여가 완료되었습니다!"
+        },
+        "results": {
+          "overallAverage": {
+            "label": "전체 평균",
+            "value": "25,713.81"
+          },
+          "labels": {
+            "participantId": "참가자 ID",
+            "submittedNumber": "제출 숫자",
+            "note": "비고"
+          },
+          "avgClosest": {
+            "title": "평균에 가장 근접한 참가자",
+            "username": "@bookarena-iv1wg",
+            "number": "25,624",
+            "description": "결과와 단 89 차이"
+          },
+          "lowestUnique": {
+            "title": "유일하게 가장 작은 참가자",
+            "username": "@user-asdfghjklzxcvbn",
+            "number": "2",
+            "description": "유일한 최소값"
+          }
+        }
+      }
+    },
+    "about": {
+      "heroTitle": "ABOUT US",
+      "intro": {
+        "text": "<strong>Bawky Studio</strong>는 작은 팀이지만 <strong>뾰족한 재미가 있는</strong> 게임을 만듭니다.<br> 우리는 <accent>유머</accent>와 <accent>개성</accent>이 중요하다고 느끼는 팀입니다."
+      },
+      "philosophy": {
+        "title": "⚡ 철학",
+        "text": "우리는 플레이어가 웃으며 즐기고, 확실한 피처가 있는 게임을 만듭니다. 이상하지만 재밌다면, 그게 바로 우리의 의도입니다."
+      },
+      "focus": {
+        "title": "🎮 추구",
+        "text": "멀티플레이, 심리전, 그리고 예측할 수 없는 시스템, 매 세션이 새로워지는 경험을 추구합니다."
+      },
+      "identity": {
+        "title": "🐔 MOTTO",
+        "text": "게임 개발은 즐겁게!"
+      },
+      "team": {
+        "title": "MEMBERS",
+        "BawkZilla": "기회는 만드는 것이다",
+        "Hyuki": "미래의 내가 현재의 나를 응원하고있다",
+        "Triceps": "No Excuses",
+        "Ika": "Communication, Compromise, Consideration",
+        "LittleBread": "나는 빵이다"
+      },
+      "promise": {
+        "title": "OUR PROMISE",
+        "text": "“게임을 제작하면서도 즐길 수 있는 게임을 만들겠습니다”"
+      },
+      "join": {
+        "title": "JOIN OUR TEAM",
+        "text": "우리는 게임을 사랑하는 개발자, 아티스트, 그리고 괴짜들을 항상 기다립니다.<br>당신이 그 중 하나라면, 우리에게 연락 주세요.",
+        "button": "지금 지원하기 →"
+      },
+      "back": "← 홈으로 돌아가기"
+    },
+    "teams": {
+      "title": "<h2>저희 스튜디오에 지원해주셔서 감사합니다!<br>각 직군에 호버하면 세부적인 역할이 등장합니다.<br>(아직 구현되지 않은 페이지입니다.)</h2><br><strong>현재 소중한 아티스트 분들을 찾고 있습니다.<br>신생 인디 게임 팀에 관심 있으신 분은<br>디스코드로 연락 주세요!"
+    }
+  }
+  
