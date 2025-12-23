@@ -39,8 +39,8 @@ export default function About() {
   // 👥 팀 멤버 정보
   const teamMembers = [
     {
-      name: "BawkZilla",
-      role: "Leader / Server Programmer",
+      name: "Bawky",
+      role: "Game Designer",
       desc: t("team.BawkZilla"),
       image: "/images/team-bawkzilla.png",
     },
