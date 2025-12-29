@@ -37,9 +37,8 @@ export default async function LocaleLayout({
           <main className="min-h-screen pt-20">{children}</main>
           <Footer />
 
-          {/* 🟥 Floating YouTube Subscribe Button */}
           <Link
-            href="https://www.youtube.com/@BawkZilla" // 🔗 채널 주소
+            href="https://www.youtube.com/@DevBawky"
             target="_blank"
             rel="noopener noreferrer"
             className="
