@@ -122,6 +122,28 @@
     },
     "teams": {
       "title": "<h2>저희 스튜디오에 지원해주셔서 감사합니다!<br>각 직군에 호버하면 세부적인 역할이 등장합니다.<br>(아직 구현되지 않은 페이지입니다.)</h2><br><strong>현재 소중한 아티스트 분들을 찾고 있습니다.<br>신생 인디 게임 팀에 관심 있으신 분은<br>디스코드로 연락 주세요!"
+    },
+    "programs": {
+      "title": "프로그램",
+      "description": "Bawky Studio에서 개발한 강력한 도구입니다. 다운로드하여 설치하시면 바로 사용하실 수 있습니다.",
+      "download": "다운로드",
+      "version": "버전",
+      "platforms": "플랫폼",
+      "viewOnGitHub": "GitHub에서 보기",
+      "macLinuxComingSoon": "Mac & Linux 추가 예정",
+      "empty": "현재 제공되는 프로그램이 없습니다. 곧 업데이트될 예정입니다!",
+      "comingSoon": {
+        "title": "더 많은 프로그램 개발 예정",
+        "description": "새로운 도구와 유틸리티를 지속적으로 개발하고 있습니다.<br />곧 더 많은 프로그램을 만나보실 수 있습니다!"
+      },
+      "items": {
+        "kalivra": {
+          "title": "Kalivra",
+          "description": "Kalivra는 오픈소스 게임 밸런스 분석 및 시뮬레이션 도구입니다.<br />복잡한 게임 밸런스 데이터를 GUI 환경에서 실험하고 분석하여,<br />감이 아닌 설명 가능한 데이터 기반 밸런싱을 가능하게 합니다.",
+          "version": "1.0.0",
+          "platforms": "Windows (Mac & Linux 지원 예정)"
+        }
+      }
     }
   }
   
