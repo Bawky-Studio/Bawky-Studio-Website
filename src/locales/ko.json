@@ -140,7 +140,7 @@
         "kalivra": {
           "title": "Kalivra",
           "description": "Kalivra는 오픈소스 게임 밸런스 분석 및 시뮬레이션 도구입니다.<br />복잡한 게임 밸런스 데이터를 GUI 환경에서 실험하고 분석하여,<br />감이 아닌 설명 가능한 데이터 기반 밸런싱을 가능하게 합니다.",
-          "version": "1.0.0",
+          "version": "1.0.1",
           "platforms": "Windows (Mac & Linux 지원 예정)"
         }
       }

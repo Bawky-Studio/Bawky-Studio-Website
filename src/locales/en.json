@@ -167,7 +167,7 @@
         "kalivra": {
           "title": "Kalivra",
           "description": "Kalivra is an open-source game balance analysis and simulation tool.<br />It lets you experiment with and analyze complex game balance data in a GUI environment,<br />enabling explainable, data-driven balancing rather than guesswork.",
-          "version": "1.0.0",
+          "version": "1.0.1",
           "platforms": "Windows (Mac & Linux coming soon)"
         }
       }
