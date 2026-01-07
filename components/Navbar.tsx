@@ -37,7 +37,6 @@ export const Navbar = () => {
           <Link href="/games" locale={locale}>Games</Link>
           <Link href="/events" locale={locale}>Event</Link>
           <Link href="/programs" locale={locale}>Programs</Link>
-          <Link href="/team" locale={locale}>Team</Link>
           <Link href="/about" locale={locale}>About</Link>
 
           {/* 구분선 */}
