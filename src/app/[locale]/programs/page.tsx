@@ -18,7 +18,7 @@ interface Program {
 const programs: Program[] = [
   {
     key: "kalivra",
-    downloadUrl: "https://github.com/DevBawky/Kalivra/releases/download/v1.0.1/Windows_Kalivra-Setup-1.0.0.exe",
+    downloadUrl: "https://github.com/DevBawky/Kalivra/releases/download/v1.0.1/Windows_Kalivra-Setup-1.0.1.exe",
     githubUrl: "https://github.com/DevBawky/Kalivra/releases/tag/v1.0.1", // GitHub 주소를 여기에 입력하세요
     logoPath: "/images/programs/kalivra-logo.png", // 로고 이미지 경로를 여기에 입력하세요
     screenshotPath: "/images/programs/kalivra-screenshot.png", // 프로그램 실행 사진 경로를 여기에 입력하세요
