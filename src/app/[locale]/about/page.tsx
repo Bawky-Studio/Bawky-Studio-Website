@@ -198,39 +198,6 @@ export default function About() {
           {t("promise.text")}
         </motion.p>
       </section>
-
-      {/* 🚀 Join Us */}
-      <section className="py-16 md:py-24 bg-[#1E293B]/40 text-center px-6">
-        <motion.h2
-          className="text-3xl md:text-4xl font-press text-accent mb-6"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
-          {t("join.title")}
-        </motion.h2>
-
-        <motion.p
-          className="text-gray-300 font-outfit max-w-xl mx-auto mb-10 text-sm md:text-base leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: t.raw("join.text") }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ delay: 0.4 }}
-        />
-
-
-        <motion.div whileHover={{ scale: 1.08 }}>
-          <Link
-            href="/team"
-            locale={locale}
-            className="relative inline-block font-press text-accent border border-accent/60 rounded-full px-6 py-3 text-sm md:text-base transition-all duration-300 hover:text-accent hover:border-accent hover:shadow-[0_0_15px_#FBBF24] hover:scale-105"
-          >
-            {t("join.button")}
-          </Link>
-        </motion.div>
-      </section>
  
       {/* ⬅ Back to Home */}
       <div className="text-center py-10 md:py-12">
