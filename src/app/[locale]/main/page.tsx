@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col snap-y snap-proximity scroll-pt-24 motion-reduce:snap-none">
       <HeroSection />
       <GameIntroSection />
       <NewsSection />
@@ -14,18 +14,26 @@ export default function HomePage() {
 function HeroSection() {
   return (
     <Section as="header" variant="full">
-      <Container>
-        <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-center">
-          <div className="space-y-4">
-            <h1>Studio Name Placeholder</h1>
-            <p>Short tagline placeholder describing the studio.</p>
+      <div className="w-full border-b border-neutral-200 bg-neutral-50">
+        <Container>
+          <div className="grid gap-10 py-20 md:grid-cols-[1.3fr_0.7fr] md:items-end md:py-28">
+            <div className="space-y-5">
+              <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">
+                Bawky Studio Placeholder Title
+              </h1>
+              <p className="max-w-xl text-base leading-relaxed text-neutral-600 md:text-lg">
+                A short supporting line that sets the tone for the studio’s world and
+                highlights its focus on immersive game experiences.
+              </p>
+            </div>
+            <div className="md:justify-self-end">
+              <a className="inline-flex items-center text-sm font-medium text-neutral-900 underline underline-offset-4">
+                Explore the latest release
+              </a>
+            </div>
           </div>
-          <div className="space-y-3">
-            <p>Primary call to action placeholder.</p>
-            <p>Secondary call to action placeholder.</p>
-          </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </Section>
   );
 }
@@ -103,7 +111,7 @@ function Section({ as = "section", children, variant = "contained", ...rest }: S
   return (
     <Component
       {...rest}
-      className="w-full py-16 md:py-24 lg:py-28"
+      className="min-h-screen w-full snap-start scroll-mt-24 py-16 md:py-24 lg:py-28"
     >
       {content}
     </Component>
