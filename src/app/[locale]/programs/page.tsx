@@ -170,11 +170,6 @@ export default function ProgramsPage() {
                     </svg>
                     {t("download")}
                   </a>
-
-                  {/* Mac & Linux 추가 예정 문구 */}
-                  <p className="text-sm text-neutral-400">
-                    {t("macLinuxComingSoon")}
-                  </p>
                 </div>
 
                 {/* GitHub 링크 버튼 (있는 경우) */}
