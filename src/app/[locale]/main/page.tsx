@@ -40,9 +40,9 @@ export default function Home() {
 
         <div className="mt-10 flex flex-wrap gap-4 justify-center">
           <NeonButton label="About Us" href="/about" locale={locale} />
-          <NeonButton label="Projects" href="/games" locale={locale} />
+          <NeonButton label="Games" href="/games" locale={locale} />
+          <NeonButton label="Softwares" href="/programs" locale={locale} />
           <NeonButton label="Events" href="/events" locale={locale} />
-          <NeonButton label="Join Team" href="/team" locale={locale} />
         </div>
       </div>
 
