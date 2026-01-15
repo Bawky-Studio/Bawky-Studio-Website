@@ -44,3 +44,6 @@ next-env.d.ts
 appspec.yml
 scripts/after-deploy.sh
 .github/workflows/deploy.yaml
+
+# AI
+AGENTS.md
