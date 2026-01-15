@@ -6,31 +6,34 @@ import { useEffect, useRef, useState } from "react";
 
 const NAV_ITEMS = [
   {
-    href: "/games",
-    label: "Games",
+    href: "/game",
+    label: "Game",
     children: [
-      { href: "/games", label: "Betdown: Fataldraw" },
-      { href: "/games", label: "Betdown: Duel & Bet" },
+      { href: "/game", label: "Betdown: Fataldraw" },
+      { href: "/game", label: "Betdown: Duel & Bet" },
     ],
   },
   {
-    href: "/programs",
-    label: "Programs",
+    href: "/software",
+    label: "Software",
     children: [
-      { href: "/programs", label: "Kalivra" },
+      { href: "/software", label: "Kalivra" },
     ],
   },
   {
-    href: "/events",
+    href: "/event",
     label: "Event",
     children: [
-      { href: "/events", label: "Guess the Average" },
+      { href: "/event", label: "Guess the Average" },
     ],
   },
   {
-    href: "/about",
-    label: "About",
-    children: [],
+    href: "/studio",
+    label: "Studio",
+    children: [
+      { href: "/studio", label: "Notice" },
+      { href: "/studio", label: "DevLog" },
+    ],
   },
 ];
 
