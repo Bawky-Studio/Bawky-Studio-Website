@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { GameData } from "../_types/GameData";
+import { Button, ButtonLink } from "../../../../../components/ui/Button";
 
 interface GameDetailProps {
     data?: GameData;
@@ -13,131 +13,157 @@ export default function GameDetail({ data }: GameDetailProps) {
 
     if (!data) {
         return (
-            <section className="min-h-screen flex items-center justify-center bg-neutral-950 text-neutral-400">
+            <section className="min-h-screen flex items-center justify-center bg-stone-50 text-neutral-500">
                 Game not found
             </section>
         );
     }
 
     return (
-        <section className="min-h-screen bg-neutral-950 text-white py-24 px-6 flex justify-center">
-            <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="flex flex-col md:flex-row gap-12 max-w-6xl w-full"
-            >
-                {/* ---------- LEFT COLUMN ---------- */}
-                <div className="flex-1 flex flex-col items-center md:items-start">
-                    {/* 포스터 이미지 */}
-                    <Image
-                        src={data.image}
-                        alt={data.title}
-                        width={700}
-                        height={400}
-                        className="rounded-2xl shadow-lg mb-8 object-cover w-full"
-                    />
-
-                    {/* 제목 + 설명 */}
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-yellow-400 text-center md:text-left">
-                        {data.title}
-                    </h1>
-                    <p className="text-neutral-300 mb-10 text-center md:text-left leading-relaxed">
-                        {data.description}
-                    </p>
-
-                    {/* 정보 섹션 */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
-                        <div>
-                            <h3 className="text-2xl font-semibold mb-3 text-yellow-300">
-                                Genre
-                            </h3>
-                            <p>{data.genre}</p>
-
-                            <h3 className="text-2xl font-semibold mt-6 mb-3 text-yellow-300">
-                                Platform
-                            </h3>
-                            <ul className="list-disc list-inside text-neutral-200">
-                                {data.platform.map((p) => (
-                                    <li key={p}>{p}</li>
-                                ))}
-                            </ul>
-
-                            <h3 className="text-2xl font-semibold mt-6 mb-3 text-yellow-300">
-                                Release Date
-                            </h3>
-                            <p>{data.releaseDate}</p>
-                        </div>
-
-                        <div>
-                            <h3 className="text-2xl font-semibold mb-3 text-yellow-300">
-                                Features
-                            </h3>
-                            <ul className="list-disc list-inside text-neutral-200 mb-6">
-                                {data.features.map((f) => (
-                                    <li key={f}>{f}</li>
-                                ))}
-                            </ul>
-
-                            <h3 className="text-2xl font-semibold mb-3 text-yellow-300">
-                                Dev Members
-                            </h3>
-                            <p>{data.team.join(", ")}</p>
+        <section className="min-h-screen bg-stone-50 text-black">
+            <div className="mx-auto w-full max-w-6xl px-6 pb-24 pt-24 md:px-10 lg:px-12">
+                <header className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+                    <div className="space-y-6">
+                        <p className="text-xs uppercase tracking-[0.3em] text-black/50">Game</p>
+                        <h1 className="text-4xl font-semibold md:text-6xl">{data.title}</h1>
+                        <p className="max-w-xl text-base leading-relaxed text-black/70 md:text-lg">
+                            {data.description}
+                        </p>
+                        <div className="flex flex-wrap gap-3">
+                            {data.steamUrl ? (
+                                <ButtonLink
+                                    href={data.steamUrl}
+                                    size="md"
+                                    className="border-black text-black hover:border-orange-300 hover:text-neutral-950"
+                                >
+                                    View on Steam
+                                </ButtonLink>
+                            ) : (
+                                <Button
+                                    disabled
+                                    size="md"
+                                    className="border-black text-black/40 hover:bg-transparent hover:text-black/40"
+                                >
+                                    Steam (Coming Soon)
+                                </Button>
+                            )}
                         </div>
                     </div>
-                </div>
-
-                {/* ---------- RIGHT COLUMN ---------- */}
-                <div className="flex-1 flex flex-col items-center justify-start">
-                    {/* 티저 영상 */}
-                    {data.trailerUrl && (
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.7 }}
-                            className="w-full max-w-md aspect-video mb-10 rounded-xl overflow-hidden shadow-2xl"
-                        >
-                            <iframe
-                                src={data.trailerUrl}
-                                title={`${data.title} Trailer`}
-                                className="w-full h-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            ></iframe>
-                        </motion.div>
-                    )}
-
-                    {/* 버튼 영역 */}
-                    <div className="flex flex-col items-center gap-4 w-full max-w-md">
-                        {/* Steam 버튼 */}
-                        {data.steamUrl ? (
-                            <a
-                                href={data.steamUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-full text-center px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-400 transition-all duration-200"
-                            >
-                                Steam Page
-                            </a>
-                        ) : (
-                            <button
-                                disabled
-                                className="w-full px-6 py-3 bg-neutral-700 text-neutral-400 font-semibold rounded-md cursor-not-allowed"
-                            >
-                                Steam Page (Coming Soon)
-                            </button>
-                        )}
-
-                        {/* 돌아가기 버튼 */}
-                        <Link
-                            href="/games"
-                            className="w-full text-center px-6 py-3 bg-yellow-400 text-black font-semibold rounded-md hover:bg-yellow-300 transition-all duration-200"
-                        >
-                            Back To Projects
-                        </Link>
+                    <div className="relative w-full">
+                        <Image
+                            src={data.image}
+                            alt={data.title}
+                            width={900}
+                            height={600}
+                            className="w-full rounded-2xl object-cover"
+                        />
                     </div>
+                </header>
+
+                <div className="mt-20 grid gap-16">
+                    <section aria-labelledby="overview-title" className="space-y-4">
+                        <h2 id="overview-title" className="text-2xl font-semibold md:text-3xl">
+                            Overview
+                        </h2>
+                        <p className="max-w-3xl text-base leading-relaxed text-black/70 md:text-lg">
+                            {data.description}
+                        </p>
+                    </section>
+
+                    <section aria-labelledby="media-title" className="space-y-6">
+                        <h2 id="media-title" className="text-2xl font-semibold md:text-3xl">
+                            Media
+                        </h2>
+                        <div className="grid gap-6 md:grid-cols-2">
+                            {data.trailerUrl && (
+                                <div className="aspect-video overflow-hidden rounded-xl bg-black/5">
+                                    <iframe
+                                        src={data.trailerUrl}
+                                        title={`${data.title} Trailer`}
+                                        className="h-full w-full"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
+                                </div>
+                            )}
+                            <div className="overflow-hidden rounded-xl bg-black/5">
+                                <Image
+                                    src={data.image}
+                                    alt={`${data.title} screenshot`}
+                                    width={900}
+                                    height={600}
+                                    className="h-full w-full object-cover"
+                                />
+                            </div>
+                        </div>
+                    </section>
+
+                    <section aria-labelledby="features-title" className="space-y-6">
+                        <h2 id="features-title" className="text-2xl font-semibold md:text-3xl">
+                            Features
+                        </h2>
+                        <ul className="grid gap-3 md:grid-cols-2 text-black/70">
+                            {data.features.map((feature) => (
+                                <li key={feature} className="border-b border-black/10 pb-3">
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+
+                    <section aria-labelledby="info-title" className="space-y-6">
+                        <h2 id="info-title" className="text-2xl font-semibold md:text-3xl">
+                            Info
+                        </h2>
+                        <div className="grid gap-6 md:grid-cols-3 text-black/70">
+                            <div className="space-y-2">
+                                <p className="text-xs uppercase tracking-[0.2em] text-black/50">
+                                    Genre
+                                </p>
+                                <p className="text-base font-medium text-black">{data.genre}</p>
+                            </div>
+                            <div className="space-y-2">
+                                <p className="text-xs uppercase tracking-[0.2em] text-black/50">
+                                    Platform
+                                </p>
+                                <p className="text-base font-medium text-black">
+                                    {data.platform.join(", ")}
+                                </p>
+                            </div>
+                            <div className="space-y-2">
+                                <p className="text-xs uppercase tracking-[0.2em] text-black/50">
+                                    Release Date
+                                </p>
+                                <p className="text-base font-medium text-black">{data.releaseDate}</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section aria-labelledby="links-title" className="space-y-4">
+                        <h2 id="links-title" className="text-2xl font-semibold md:text-3xl">
+                            Links
+                        </h2>
+                        <div className="flex flex-wrap gap-3">
+                            {data.steamUrl && (
+                                <ButtonLink
+                                    href={data.steamUrl}
+                                    size="md"
+                                    className="border-black text-black hover:border-orange-300 hover:text-neutral-950"
+                                >
+                                    Steam Page
+                                </ButtonLink>
+                            )}
+                            <ButtonLink
+                                href="/game"
+                                size="md"
+                                className="border-black text-black hover:border-orange-300 hover:text-neutral-950"
+                            >
+                                Back to Games
+                            </ButtonLink>
+                        </div>
+                    </section>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 }
