@@ -1,24 +1,25 @@
 "use client";
 
+import React from "react";
 import GameDetail from "../_components/GameDetail";
 import { getGameDataByLocale } from "../_data/gameData";
 
 interface GamePageProps {
-    params: {
+    params: Promise<{
         slug: string;
         locale: string;
-    };
+    }>;
 }
 
 export default function GamePage({ params }: GamePageProps) {
-    const { slug, locale } = params;
+    const { slug, locale } = React.use(params);
 
     const gameData = getGameDataByLocale(locale);
     const data = gameData[slug];
 
     if (!data) {
         return (
-            <section className="min-h-screen flex items-center justify-center bg-neutral-950 text-neutral-400">
+            <section className="min-h-screen flex items-center justify-center bg-stone-50 text-neutral-500">
                 Game not found
             </section>
         );
