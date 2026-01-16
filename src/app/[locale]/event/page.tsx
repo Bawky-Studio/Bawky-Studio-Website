@@ -1,8 +1,7 @@
 "use client";
-import { motion } from "framer-motion";
-import { Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
+import { ButtonLink } from "../../../../components/ui/Button";
 
 // 🎯 타입 정의
 type EventStatus = "active" | "closed" | "upcoming";
@@ -18,13 +17,13 @@ interface EventItem {
 
 // 🎨 상태 색상 맵핑
 const statusColor: Record<EventStatus, string> = {
-  active: "text-[#00FFFF] border-[#00FFFF]/40 bg-[#00FFFF]/10",
-  closed: "text-gray-400 border-gray-600 bg-gray-800/40",
-  upcoming: "text-yellow-400 border-yellow-500/40 bg-yellow-500/10",
+  active: "text-neutral-700 border-neutral-200 bg-neutral-100",
+  closed: "text-neutral-500 border-neutral-200 bg-neutral-100",
+  upcoming: "text-neutral-500 border-neutral-200 bg-neutral-100",
 };
 
 export default function LeaderboardEvents() {
-  const t = useTranslations("events");
+  const t = useTranslations("event");
   const locale = useLocale();
 
   const rawCards = t.raw("cards") as Record<string, Omit<EventItem, "key">>;
@@ -35,46 +34,27 @@ export default function LeaderboardEvents() {
 
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center py-24 px-6">
+    <div className="min-h-screen bg-neutral-50 text-neutral-900 flex flex-col items-center px-6 py-24">
       {/* 🏁 Hero Section */}
-      <motion.h1
-        className="text-5xl md:text-6xl font-press text-accent drop-shadow-[0_0_15px_#FBBF24] mb-6 animate-neonPulse text-center"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        {t("title")}
-      </motion.h1>
-
-      <motion.p
-        className="text-gray-300 font-outfit text-center max-w-2xl mb-16"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        dangerouslySetInnerHTML={{ __html: t.raw("intro") }}
-      />
+      <div className="w-full max-w-5xl text-center">
+        <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-neutral-900">
+          {t("title")}
+        </h1>
+        <p
+          className="mt-6 text-base md:text-lg text-neutral-600 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: t.raw("intro") }}
+        />
+      </div>
 
       {/* 🧩 이벤트 카드 리스트 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl w-full">
-        {events.map((ev, index) => (
-          <motion.div
+      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+        {events.map((ev) => (
+          <div
             key={ev.key}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            whileHover={{
-              scale: 1.03,
-              transition: { duration: 0.15, ease: "easeOut" },
-            }}
-            className="relative bg-[#0F172A]/80 border border-[#5B21B6]/40 rounded-2xl overflow-hidden shadow-neon hover:shadow-accent/30 w-full max-w-md group"
+            className="relative bg-white/80 border border-neutral-200 rounded-2xl overflow-hidden w-full max-w-md group transition-colors"
           >
             {/* 썸네일 */}
-            <motion.div
-              className="w-full h-56 overflow-hidden"
-              whileHover={{ opacity: 0.85 }}
-              transition={{ duration: 0.15 }}
-            >
+            <div className="w-full h-56 overflow-hidden">
               <Image
                 src={ev.image}
                 alt={ev.title}
@@ -82,25 +62,16 @@ export default function LeaderboardEvents() {
                 height={400}
                 className="object-cover w-full h-full"
               />
-            </motion.div>
+            </div>
 
             {/* 내용 */}
-            <div className="p-6 h-[260px] flex flex-col justify-between">
+            <div className="p-6 flex flex-col gap-6">
               <div className="flex flex-col gap-2">
-                <h3
-                  className="font-press text-accent"
-                  style={{
-                    fontSize: "clamp(1.25rem, 2.5vw, 1rem)", // 제목 자동 크기 조정
-                  }}
-                >
+                <h2 className="text-lg md:text-xl font-semibold text-neutral-900">
                   {ev.title}
-                </h3>
-
+                </h2>
                 <p
-                  className="text-gray-300 font-outfit leading-relaxed"
-                  style={{
-                    fontSize: "clamp(0.8rem, 1.6vw, .1rem)", // 설명 자동 크기 조정
-                  }}
+                  className="text-sm md:text-base text-neutral-600 leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: ev.desc }}
                 />
               </div>
@@ -117,34 +88,32 @@ export default function LeaderboardEvents() {
                     ? "CLOSED"
                     : "COMING SOON"}
                 </span>
-                <div className="h-[42px] flex items-center">
+                <div className="h-10 flex items-center">
                   {ev.status !== "upcoming" ? (
-                    <Link
+                    <ButtonLink
                       href={ev.link}
                       locale={locale}
-                      className="block w-full text-center px-4 py-2 border border-accent/40 text-accent font-semibold rounded-lg hover:text-yellow-300 hover:border-yellow-300 hover:bg-[#FBBF24]/10 transition-all duration-200"
+                      size="sm"
+                      className="border-neutral-300 text-neutral-900 hover:border-orange-300"
                     >
                       View Event
-                    </Link>
+                    </ButtonLink>
                   ) : (
-                    <div className="opacity-0 select-none w-full">View Event</div>
+                    <div className="opacity-0 select-none">View Event</div>
                   )}
                 </div>
               </div>
             </div>
 
-          </motion.div>
+          </div>
         ))}
       </div>
 
       {/* ⬅ 뒤로가기 */}
       <div className="mt-16">
-        <Link
-          href={`/`}
-          className="block w-full text-center px-4 py-2 bg-secondary text-white font-semibold rounded-lg hover:bg-accent hover:text-yellow-300 transition-all duration-200"
-        >
+        <ButtonLink href="/" locale={locale} size="sm" className="border-neutral-300 text-neutral-900 hover:border-orange-300">
           {t("back")}
-        </Link>
+        </ButtonLink>
       </div>
     </div>
   );

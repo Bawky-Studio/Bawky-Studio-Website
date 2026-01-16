@@ -13,7 +13,7 @@ export default function AvgNumberEventPage() {
     const [timeLeft, setTimeLeft] = useState("");
     const [progress, setProgress] = useState(100);
     const [isEventEnded, setIsEventEnded] = useState(false);
-    const t = useTranslations("events.avg-number");
+    const t = useTranslations("event.avg-number");
 
     /** ✅ 이벤트 기간 설정 */
     const eventStart = new Date("2025-10-27T18:00:00+09:00");
@@ -326,7 +326,7 @@ export default function AvgNumberEventPage() {
 
             {/* 뒤로가기 버튼 */}
             <Link
-                href="/events"
+                href="/event"
                 className="mt-16 inline-block px-6 py-3 rounded-lg border border-accent/40 text-accent font-press hover:text-yellow-300 hover:border-yellow-300 transition-all duration-200"
             >
                 {t("form.back")}

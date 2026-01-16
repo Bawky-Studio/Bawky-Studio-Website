@@ -31,7 +31,7 @@
           "title": "Guess the Average",
           "desc": "Two winners will be decided in one event.<br>1: The player <strong>closest to the overall average</strong><br>2: The player who picked the <strong>lowest unique number</strong><br>Both results are automatically calculated and revealed to everyone.",
           "status": "active",
-          "link": "/events/avg-number",
+          "link": "/event/avg-number",
           "image": "/images/event-average.png"
         },
         "quickdraw": {

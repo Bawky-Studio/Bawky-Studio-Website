@@ -1,7 +1,9 @@
 {
     "nav": {
       "home": "홈",
-      "games": "게임",
+      "game": "게임",
+      "software": "프로그램",
+      "event": "이벤트",
       "team": "팀",
       "about": "소개"
     },
@@ -22,7 +24,7 @@
         }
       }
     },
-    "events": {
+    "event": {
       "title": "COMMUNITY EVENTS",
       "intro": "Bawky Studio가 주최하는 참여형 실험 이벤트를 확인해보세요.<br>데이터와 게임이 만나는 순간, 당신의 선택이 통계가 됩니다.",
       "back": "← 홈으로 돌아가기",
@@ -31,7 +33,7 @@
           "title": "Guess the Average",
           "desc": "한 이벤트 안에서 두 가지 승자가 결정됩니다.<br>1: 전체 입력값의 <strong>평균에 가장 가까운 사람</strong><br>2: <strong>중복되지 않은 수 중 가장 작은 수</strong>를 선택한 사람<br>두 조건 모두 자동으로 계산되어 결과가 공개됩니다.",
           "status": "active",
-          "link": "/events/avg-number",
+          "link": "/event/avg-number",
           "image": "/images/event-average.png"
         },
         "quickdraw": {
@@ -55,6 +57,15 @@
         "timer": {
           "label": "이벤트 종료까지 남은 시간",
           "ended": "이벤트가 종료되었습니다."
+        },
+        "guidelines": {
+          "title": "📢 참여 전 안내사항",
+          "rules": [
+            "IP당 1회만 참여 가능합니다.",
+            "입력 가능한 숫자 범위는 1 ~ 100,000 입니다.",
+            "참여하기를 누르는 즉시 참여가 완료됩니다.",
+            "유튜브 id를 잘못 입력하면 등재되지 않을 수 있습니다."
+          ]
         },
         "eventEnded": {
           "title": "이벤트 결과"
