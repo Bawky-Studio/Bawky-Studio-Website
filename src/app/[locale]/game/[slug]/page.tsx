@@ -1,17 +1,18 @@
 "use client";
 
+import React from "react";
 import GameDetail from "../_components/GameDetail";
 import { getGameDataByLocale } from "../_data/gameData";
 
 interface GamePageProps {
-    params: {
+    params: Promise<{
         slug: string;
         locale: string;
-    };
+    }>;
 }
 
 export default function GamePage({ params }: GamePageProps) {
-    const { slug, locale } = params;
+    const { slug, locale } = React.use(params);
 
     const gameData = getGameDataByLocale(locale);
     const data = gameData[slug];
