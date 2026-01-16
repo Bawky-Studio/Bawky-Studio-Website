@@ -12,18 +12,18 @@ const sizeClasses: Record<ButtonSize, string> = {
 };
 
 const baseClasses =
-  "inline-flex items-center justify-center border-2 border-white bg-[linear-gradient(90deg,transparent_0%,transparent_50%,#fdba74_50%,#fdba74_100%)] bg-[length:200%_100%] bg-[position:0%_0%] text-white transition-[background-position,color,border-color] duration-300 hover:border-orange-300 hover:bg-[position:100%_0%] hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300 disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex items-center justify-center whitespace-nowrap border-2 border-white bg-[linear-gradient(90deg,transparent_0%,transparent_50%,#fdba74_50%,#fdba74_100%)] bg-[length:200%_100%] bg-[position:0%_0%] text-white transition-[background-position,color,border-color] duration-300 hover:border-orange-300 hover:bg-[position:100%_0%] hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300 disabled:cursor-not-allowed disabled:opacity-50";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: ButtonSize;
   asChild?: boolean;
 };
 
-export function Button({ size = "md", className, asChild, ...props }: ButtonProps) {
+export function Button({ size = "md", className, asChild, children, ...props }: ButtonProps) {
   const classes = [baseClasses, sizeClasses[size], className].filter(Boolean).join(" ");
 
-  if (asChild && props.children && isValidElement(props.children)) {
-    const child = props.children as ReactElement<{ className?: string }>;
+  if (asChild && children && isValidElement(children)) {
+    const child = children as ReactElement<{ className?: string }>;
     return cloneElement(child, {
       ...props,
       className: [child.props.className, classes].filter(Boolean).join(" "),
@@ -32,7 +32,7 @@ export function Button({ size = "md", className, asChild, ...props }: ButtonProp
 
   return (
     <button className={classes} type={props.type ?? "button"} {...props}>
-      {props.children}
+      {children}
     </button>
   );
 }
