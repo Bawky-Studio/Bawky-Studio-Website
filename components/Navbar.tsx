@@ -31,8 +31,8 @@ const NAV_ITEMS = [
     href: "/studio",
     label: "Studio",
     children: [
-      { href: "/studio", label: "Notice" },
-      { href: "/studio", label: "DevLog" },
+      { href: "/studio/notice", label: "Notice" },
+      { href: "/studio/devlog", label: "DevLog" },
     ],
   },
 ];
