@@ -54,7 +54,7 @@ export default function Team() {
     const t = useTranslations("teams");
 
     return (
-<div className="min-h-screen bg-black flex flex-col items-center justify-center text-white text-center px-4">
+<div className="min-h-screen bg-black flex flex-col items-center justify-center text-white text-center px-4" data-nav-theme="dark">
             {/* 🎬 Title */}
             <motion.h1
                 className="text-5xl md:text-6xl font-press text-accent drop-shadow-[0_0_10px_#FBBF24] mb-10 animate-neonPulse text-center"

@@ -96,6 +96,7 @@ export default function ProgramsPage() {
       ref={containerRef}
       onWheel={handleWheel}
       className="bg-neutral-950 text-white h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth motion-reduce:scroll-auto"
+      data-nav-theme="dark"
     >
       {/* 프로그램 섹션들 */}
       {programs.map((program, index) => (

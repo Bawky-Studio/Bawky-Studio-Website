@@ -59,7 +59,7 @@ export default function About() {
   ];
 
   return (
-    <div className="bg-neutral-50 text-neutral-900 overflow-x-hidden">
+    <div className="bg-neutral-50 text-neutral-900 overflow-x-hidden" data-nav-theme="light">
       {/* 🎬 Hero Section */}
       <section className="relative w-full min-h-[70vh] md:min-h-screen flex items-center justify-center px-6">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-neutral-50 to-neutral-100" />

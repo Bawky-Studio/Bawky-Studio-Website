@@ -94,6 +94,7 @@ export default function GamePage() {
           <section
             key={game.id}
             data-game-snap="true"
+            data-nav-theme="light"
             aria-labelledby={`${game.id}-title`}
             className={`relative min-h-[100svh] w-full snap-start overflow-hidden ${game.tone}`}
           >

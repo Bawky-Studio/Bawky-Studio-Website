@@ -19,7 +19,10 @@ export default function GamePage({ params }: GamePageProps) {
 
     if (!data) {
         return (
-            <section className="min-h-screen flex items-center justify-center bg-stone-50 text-neutral-500">
+            <section
+                className="min-h-screen flex items-center justify-center bg-stone-50 text-neutral-500"
+                data-nav-theme="light"
+            >
                 Game not found
             </section>
         );

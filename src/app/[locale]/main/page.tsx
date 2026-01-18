@@ -60,6 +60,7 @@ function HeroSection() {
       variant="full"
       className="relative overflow-hidden bg-neutral-950 text-white"
       fullHeight
+      navTheme="dark"
     >
       <div className="absolute inset-0">
         <video
@@ -148,7 +149,12 @@ function GameSection() {
   };
 
   return (
-    <Section aria-labelledby="game-intro-title" className="bg-parchment-50 text-carbon-black-950" fullHeight>
+    <Section
+      aria-labelledby="game-intro-title"
+      className="bg-parchment-50 text-carbon-black-950"
+      fullHeight
+      navTheme="light"
+    >
       <div className="grid gap-12 md:grid-cols-[1fr_1.2fr] md:items-center">
         <div className="space-y-8">
           <div className="space-y-3">
@@ -237,6 +243,7 @@ function NoticeSection() {
       aria-labelledby="news-title"
       className="bg-stone-50 text-black"
       containerClassName="max-w-[1200px]"
+      navTheme="light"
     >
       <div className="space-y-12">
         <div className="space-y-3 text-center">
@@ -270,6 +277,7 @@ function MediaSection() {
       aria-labelledby="media-title"
       className="relative overflow-hidden bg-stone-50 text-black"
       containerClassName="max-w-[1200px]"
+      navTheme="light"
     >
       <div className="pointer-events-none absolute inset-0 hidden md:block">
         <div className="absolute inset-0 bg-neutral-200" />
@@ -354,6 +362,7 @@ type SectionProps = {
   className?: string;
   fullHeight?: boolean;
   containerClassName?: string;
+  navTheme?: "light" | "dark";
 };
 
 function Section({
@@ -363,6 +372,7 @@ function Section({
   className,
   fullHeight = false,
   containerClassName,
+  navTheme,
   ...rest
 }: SectionProps) {
   const Component = as;
@@ -371,6 +381,7 @@ function Section({
   return (
     <Component
       {...rest}
+      data-nav-theme={navTheme}
       className={[
         "w-full py-16 md:py-24 lg:py-28",
         fullHeight ? "min-h-[100svh]" : "",

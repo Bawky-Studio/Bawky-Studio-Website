@@ -34,7 +34,10 @@ export default function LeaderboardEvents() {
 
 
   return (
-    <div className="min-h-screen bg-neutral-50 text-neutral-900 flex flex-col items-center px-6 py-24">
+    <div
+      className="min-h-screen bg-neutral-50 text-neutral-900 flex flex-col items-center px-6 py-24"
+      data-nav-theme="light"
+    >
       {/* 🏁 Hero Section */}
       <div className="w-full max-w-5xl text-center">
         <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-neutral-900">

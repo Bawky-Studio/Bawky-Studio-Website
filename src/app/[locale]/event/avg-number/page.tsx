@@ -103,7 +103,7 @@ export default function AvgNumberEventPage() {
     };
 
     return (
-        <div className="min-h-screen bg-neutral-50 text-neutral-900">
+        <div className="min-h-screen bg-neutral-50 text-neutral-900" data-nav-theme="light">
             <div className="mx-auto flex w-full max-w-5xl flex-col px-6 py-20">
                 <header className="text-center">
                     <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">

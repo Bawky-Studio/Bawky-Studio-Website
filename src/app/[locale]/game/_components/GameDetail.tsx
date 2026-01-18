@@ -13,14 +13,17 @@ export default function GameDetail({ data }: GameDetailProps) {
 
     if (!data) {
         return (
-            <section className="min-h-screen flex items-center justify-center bg-stone-50 text-neutral-500">
+            <section
+                className="min-h-screen flex items-center justify-center bg-stone-50 text-neutral-500"
+                data-nav-theme="light"
+            >
                 Game not found
             </section>
         );
     }
 
     return (
-        <section className="min-h-screen bg-stone-50 text-black">
+        <section className="min-h-screen bg-stone-50 text-black" data-nav-theme="light">
             <div className="mx-auto w-full max-w-6xl px-6 pb-24 pt-24 md:px-10 lg:px-12">
                 <header className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
                     <div className="space-y-6">
