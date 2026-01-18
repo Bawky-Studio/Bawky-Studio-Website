@@ -69,6 +69,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
 }
 
 @theme inline {
@@ -76,6 +77,50 @@
   --color-foreground: var(--foreground);
   --font-sans: "Pretendard", sans-serif;
   --font-mono: var(--font-geist-mono);
+}
+
+@theme {
+  --studio-white: #F1F0EC;
+  --studio-black: 33 35 34;
+  --studio-accent: 255 166 77;
+
+  --color-parchment-50: #f4f3f0;
+  --color-parchment-100: #e9e8e2;
+  --color-parchment-200: #d4d1c4;
+  --color-parchment-300: #beb9a7;
+  --color-parchment-400: #a8a28a;
+  --color-parchment-500: #938b6c;
+  --color-parchment-600: #756f57;
+  --color-parchment-700: #585341;
+  --color-parchment-800: #3b382b;
+  --color-parchment-900: #1d1c16;
+  --color-parchment-950: #15130f;
+
+  --color-carbon-black-50: #f1f0ec;
+  --color-carbon-black-100: #e5e6e6;
+  --color-carbon-black-200: #cacecc;
+  --color-carbon-black-300: #b0b5b3;
+  --color-carbon-black-400: #969c99;
+  --color-carbon-black-500: #7c8380;
+  --color-carbon-black-600: #636966;
+  --color-carbon-black-700: #4a4f4d;
+  --color-carbon-black-800: #313533;
+  --color-carbon-black-900: #191a1a;
+  --color-carbon-black-950: #111212;
+
+  --color-sandy-brown-50: #fff2e5;
+  --color-sandy-brown-100: #ffe6cc;
+  --color-sandy-brown-200: #ffcc99;
+  --color-sandy-brown-300: #ffb366;
+  --color-sandy-brown-400: #ff9933;
+  --color-sandy-brown-500: #ff8000;
+  --color-sandy-brown-600: #cc6600;
+  --color-sandy-brown-700: #994c00;
+  --color-sandy-brown-800: #663300;
+  --color-sandy-brown-900: #331a00;
+  --color-sandy-brown-950: #241200;
+  
+  
 }
 
 @media (prefers-color-scheme: dark) {

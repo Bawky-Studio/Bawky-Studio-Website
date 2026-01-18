@@ -3,10 +3,16 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
+    "./src/app/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
+      colors: {
+        swhite: "rgb(var(--studio-white) / <alpha-value>)",
+        black: "rgb(var(--studio-black) / <alpha-value>)",
+        accent: "rgb(var(--studio-accent) / <alpha-value>)",
+      },
       keyframes: {
         glitch: {
           "0%, 100%": { transform: "translate(0, 0)" },

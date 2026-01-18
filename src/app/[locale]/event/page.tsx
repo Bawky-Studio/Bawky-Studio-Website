@@ -94,6 +94,7 @@ export default function LeaderboardEvents() {
                       href={ev.link}
                       locale={locale}
                       size="sm"
+                      variant="black"
                       className="border-neutral-300 text-neutral-900 hover:border-orange-300"
                     >
                       View Event
@@ -111,7 +112,7 @@ export default function LeaderboardEvents() {
 
       {/* ⬅ 뒤로가기 */}
       <div className="mt-16">
-        <ButtonLink href="/" locale={locale} size="sm" className="border-neutral-300 text-neutral-900 hover:border-orange-300">
+        <ButtonLink href="/" locale={locale} size="lg" variant="black" className="border-neutral-300 text-neutral-900 hover:border-orange-300">
           {t("back")}
         </ButtonLink>
       </div>

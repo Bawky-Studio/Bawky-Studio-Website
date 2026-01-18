@@ -148,7 +148,7 @@ function GameSection() {
   };
 
   return (
-    <Section aria-labelledby="game-intro-title" className="bg-neutral-200 text-black" fullHeight>
+    <Section aria-labelledby="game-intro-title" className="bg-parchment-50 text-carbon-black-950" fullHeight>
       <div className="grid gap-12 md:grid-cols-[1fr_1.2fr] md:items-center">
         <div className="space-y-8">
           <div className="space-y-3">
