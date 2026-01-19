@@ -36,6 +36,7 @@ export default function ProgramsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const lockRef = useRef(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -43,6 +44,19 @@ export default function ProgramsPage() {
     handleChange();
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    const container = containerRef.current;
+    if (!container) {
+      return;
+    }
+    const containerHeight = container.clientHeight;
+    if (containerHeight === 0) {
+      return;
+    }
+    const currentIndex = Math.round(container.scrollTop / containerHeight);
+    setActiveIndex(currentIndex);
   }, []);
 
   const handleWheel = useCallback(
@@ -92,71 +106,73 @@ export default function ProgramsPage() {
   );
 
   return (
-    <div 
-      ref={containerRef}
-      onWheel={handleWheel}
-      className="bg-neutral-950 text-white h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth motion-reduce:scroll-auto"
-      data-nav-theme="dark"
-    >
-      {/* 프로그램 섹션들 */}
-      {programs.map((program, index) => (
-        <section
-          key={program.key}
-          data-program-snap="true"
-          className="relative flex h-screen snap-start overflow-hidden"
-        >
-          {/* 배경: 스크린샷 이미지 */}
-          {program.screenshotPath && (
-            <div className="absolute inset-0 z-0">
-              <Image
-                src={program.screenshotPath}
-                alt={`${t(`items.${program.key}.title`)} background`}
-                fill
-                className="object-cover"
-                priority
-                sizes="100vw"
-              />
-            </div>
-          )}
-          
-          {/* 그라데이션 오버레이: 왼쪽 1/3 투명 → 오른쪽 위 선명, 아래 살짝 어두움 */}
-          <div 
-            className="absolute inset-0 z-[1]"
-            style={{
-              background: `
-                linear-gradient(to right, rgba(0,0,0,1.0) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.1) 80%),
-                linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%)
-              `
-            }}
-          />
-          
-          {/* 기본 배경 그라데이션 (스크린샷이 없을 경우) */}
-          {!program.screenshotPath && (
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-neutral-950 to-purple-900/20 z-0" />
-          )}
-          
-          {/* 좌우 분할 레이아웃 */}
-          <div className="relative z-10 flex w-full h-full">
-            {/* 왼쪽: 콘텐츠 (좌상단 정렬) */}
-            <div className="flex-1 flex flex-col justify-start items-start px-8 md:px-16 lg:px-24 pt-24 md:pt-32">
-              {/* 로고 이미지 */}
-              {program.logoPath && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.1 }}
-                  className="mb-6"
-                >
-                  <Image
-                    src={program.logoPath}
-                    alt={t(`items.${program.key}.title`)}
-                    width={150}
-                    height={150}
-                    className="object-contain"
-                    priority
-                  />
-                </motion.div>
-              )}
+    <main className="relative h-screen overflow-hidden">
+      <div
+        ref={containerRef}
+        onWheel={handleWheel}
+        onScroll={handleScroll}
+        className="hide-scrollbar h-full overflow-y-auto snap-y snap-mandatory scroll-smooth bg-neutral-950 text-white motion-reduce:scroll-auto"
+        data-nav-theme="dark"
+      >
+        {/* 프로그램 섹션들 */}
+        {programs.map((program, index) => (
+          <section
+            key={program.key}
+            data-program-snap="true"
+            className="relative flex h-screen snap-start overflow-hidden"
+          >
+            {/* 배경: 스크린샷 이미지 */}
+            {program.screenshotPath && (
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src={program.screenshotPath}
+                  alt={`${t(`items.${program.key}.title`)} background`}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="100vw"
+                />
+              </div>
+            )}
+            
+            {/* 그라데이션 오버레이: 왼쪽 1/3 투명 → 오른쪽 위 선명, 아래 살짝 어두움 */}
+            <div 
+              className="absolute inset-0 z-[1]"
+              style={{
+                background: `
+                  linear-gradient(to right, rgba(0,0,0,1.0) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.1) 80%),
+                  linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%)
+                `
+              }}
+            />
+            
+            {/* 기본 배경 그라데이션 (스크린샷이 없을 경우) */}
+            {!program.screenshotPath && (
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-neutral-950 to-purple-900/20 z-0" />
+            )}
+            
+            {/* 좌우 분할 레이아웃 */}
+            <div className="relative z-10 flex w-full h-full">
+              {/* 왼쪽: 콘텐츠 (좌상단 정렬) */}
+              <div className="flex-1 flex flex-col justify-start items-start px-8 md:px-16 lg:px-24 pt-24 md:pt-32">
+                {/* 로고 이미지 */}
+                {program.logoPath && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
+                    className="mb-6"
+                  >
+                    <Image
+                      src={program.logoPath}
+                      alt={t(`items.${program.key}.title`)}
+                      width={150}
+                      height={150}
+                      className="object-contain"
+                      priority
+                    />
+                  </motion.div>
+                )}
 
               <motion.h2
                 initial={{ opacity: 0, y: 30 }}
@@ -287,9 +303,46 @@ export default function ProgramsPage() {
               </motion.div>
             </motion.div>
           )}
-        </section>
-      ))}
-
-    </div>
+          </section>
+        ))}
+      </div>
+      <div
+        className="fixed right-6 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-3"
+        aria-label="Program pagination"
+      >
+        {programs.map((program, index) => {
+          const isActive = index === activeIndex;
+          return (
+            <button
+              key={`${program.key}-dot`}
+              type="button"
+              onClick={() => {
+                const container = containerRef.current;
+                if (!container) {
+                  return;
+                }
+                const sections = Array.from(
+                  container.querySelectorAll<HTMLElement>("[data-program-snap='true']")
+                );
+                const target = sections[index];
+                if (!target) {
+                  return;
+                }
+                target.scrollIntoView({
+                  behavior: reduceMotion ? "auto" : "smooth",
+                });
+              }}
+              aria-label={`Go to ${t(`items.${program.key}.title`)}`}
+              aria-current={isActive ? "true" : undefined}
+              className={`h-3 w-3 rounded-full border transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sandy-brown-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
+                isActive
+                  ? "border-sandy-brown-500 bg-sandy-brown-500"
+                  : "border-parchment-50/60 bg-parchment-50 opacity-70 hover:opacity-100"
+              }`}
+            />
+          );
+        })}
+      </div>
+    </main>
   );
 }

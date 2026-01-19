@@ -140,3 +140,12 @@ body {
 html, body {
   @apply bg-black text-white;
 }
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

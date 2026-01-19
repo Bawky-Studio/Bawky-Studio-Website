@@ -26,6 +26,7 @@ export default function GamePage() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const lockRef = useRef(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -33,6 +34,19 @@ export default function GamePage() {
     handleChange();
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    const container = containerRef.current;
+    if (!container) {
+      return;
+    }
+    const containerHeight = container.clientHeight;
+    if (containerHeight === 0) {
+      return;
+    }
+    const currentIndex = Math.round(container.scrollTop / containerHeight);
+    setActiveIndex(currentIndex);
   }, []);
 
   const handleWheel = useCallback(
@@ -83,12 +97,33 @@ export default function GamePage() {
     [reduceMotion]
   );
 
+  const handleDotClick = useCallback(
+    (index: number) => {
+      const container = containerRef.current;
+      if (!container) {
+        return;
+      }
+      const sections = Array.from(
+        container.querySelectorAll<HTMLElement>("[data-game-snap='true']")
+      );
+      const target = sections[index];
+      if (!target) {
+        return;
+      }
+      target.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
+    },
+    [reduceMotion]
+  );
+
   return (
-    <main className="flex flex-col">
+    <main className="relative flex h-[100svh] flex-col overflow-hidden">
       <div
         ref={containerRef}
         onWheel={handleWheel}
-        className="h-[100svh] w-full snap-y snap-mandatory overflow-y-auto scroll-smooth motion-reduce:scroll-auto"
+        onScroll={handleScroll}
+        className="hide-scrollbar h-full w-full snap-y snap-mandatory overflow-y-auto scroll-smooth motion-reduce:scroll-auto"
       >
         {games.map((game) => (
           <section
@@ -115,13 +150,35 @@ export default function GamePage() {
                 <p className="max-w-xl text-base text-black/80 md:text-lg">
                   {game.description}
                 </p>
-                <ButtonLink href={game.href} size="md">
+                <ButtonLink href={game.href} variant="black" size="md">
                   View details
                 </ButtonLink>
               </div>
             </div>
           </section>
         ))}
+      </div>
+      <div
+        className="fixed right-6 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-3"
+        aria-label="Game pagination"
+      >
+        {games.map((game, index) => {
+          const isActive = index === activeIndex;
+          return (
+            <button
+              key={`${game.id}-dot`}
+              type="button"
+              onClick={() => handleDotClick(index)}
+              aria-label={`Go to ${game.title}`}
+              aria-current={isActive ? "true" : undefined}
+              className={`h-3 w-3 rounded-full border transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sandy-brown-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
+                isActive
+                  ? "border-sandy-brown-500 bg-sandy-brown-500"
+                  : "border-parchment-50/60 bg-parchment-50 opacity-70 hover:opacity-100"
+              }`}
+            />
+          );
+        })}
       </div>
     </main>
   );
