@@ -1,0 +1,39 @@
+{
+  "siteName": "Bawky Studio",
+  "defaultTitle": "Bawky Studio",
+  "defaultDescription": "Indie game studio showcase and announcements.",
+  "pages": {
+    "home": {
+      "title": "Home",
+      "description": "Indie game studio showcase and announcements."
+    },
+    "games": {
+      "title": "Games",
+      "description": "Explore Bawky Studio games."
+    },
+    "gameDetail": {
+      "title": "Game",
+      "description": "Details for a featured game."
+    },
+    "software": {
+      "title": "Software",
+      "description": "Tools and utilities by Bawky Studio."
+    },
+    "events": {
+      "title": "Events",
+      "description": "Interactive events and experiments."
+    },
+    "eventDetail": {
+      "title": "Event",
+      "description": "Event details and results."
+    },
+    "studio": {
+      "title": "Studio",
+      "description": "Studio profile, team, and updates."
+    },
+    "team": {
+      "title": "Team",
+      "description": "Meet the Bawky Studio team."
+    }
+  }
+}

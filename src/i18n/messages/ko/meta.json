@@ -1,0 +1,39 @@
+{
+  "siteName": "Bawky Studio",
+  "defaultTitle": "Bawky Studio",
+  "defaultDescription": "인디 게임 스튜디오 쇼케이스와 소식.",
+  "pages": {
+    "home": {
+      "title": "홈",
+      "description": "인디 게임 스튜디오 쇼케이스와 소식."
+    },
+    "games": {
+      "title": "게임",
+      "description": "Bawky Studio의 게임을 소개합니다."
+    },
+    "gameDetail": {
+      "title": "게임",
+      "description": "대표 게임의 상세 정보."
+    },
+    "software": {
+      "title": "프로그램",
+      "description": "Bawky Studio의 도구와 유틸리티."
+    },
+    "events": {
+      "title": "이벤트",
+      "description": "참여형 이벤트와 실험."
+    },
+    "eventDetail": {
+      "title": "이벤트",
+      "description": "이벤트 상세와 결과."
+    },
+    "studio": {
+      "title": "스튜디오",
+      "description": "스튜디오 소개, 팀, 업데이트."
+    },
+    "team": {
+      "title": "팀",
+      "description": "Bawky Studio 팀을 소개합니다."
+    }
+  }
+}

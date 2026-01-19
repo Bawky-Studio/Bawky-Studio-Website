@@ -1,53 +1,58 @@
 "use client";
 import { Link } from "@/i18n/navigation";
 import { usePathname } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
-
-const NAV_ITEMS = [
-  {
-    href: "/game",
-    label: "Game",
-    children: [
-      { href: "/game", label: "Betdown: Fataldraw" },
-      { href: "/game", label: "Betdown: Duel & Bet" },
-    ],
-  },
-  {
-    href: "/software",
-    label: "Software",
-    children: [
-      { href: "/software", label: "Kalivra" },
-    ],
-  },
-  {
-    href: "/event",
-    label: "Event",
-    children: [
-      { href: "/event", label: "Guess the Average" },
-    ],
-  },
-  {
-    href: "/studio",
-    label: "Studio",
-    children: [
-      { href: "/studio/notice", label: "Notice" },
-      { href: "/studio/devlog", label: "DevLog" },
-    ],
-  },
-];
 
 export const Navbar = () => {
   const pathname = usePathname();
   const locale = useLocale();
+  const tNav = useTranslations("nav");
+  const tCommon = useTranslations("common");
   const switchLocale = locale === "en" ? "ko" : "en";
   const currentPath = pathname || "/";
+  const switchLabel =
+    switchLocale === "en"
+      ? tCommon("actions.switchToEnglish")
+      : tCommon("actions.switchToKorean");
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [navTheme, setNavTheme] = useState<"light" | "dark">("dark");
   const closeTimeoutRef = useRef<number | null>(null);
   const lastFocusedRef = useRef<HTMLAnchorElement | null>(null);
   const topLevelRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const navItems = [
+    {
+      href: "/game",
+      label: tNav("games"),
+      children: [
+        { href: "/game", label: tNav("menus.games.fatalDraw") },
+        { href: "/game", label: tNav("menus.games.duelAndBet") },
+      ],
+    },
+    {
+      href: "/software",
+      label: tNav("software"),
+      children: [
+        { href: "/software", label: tNav("menus.software.kalivra") },
+      ],
+    },
+    {
+      href: "/event",
+      label: tNav("events"),
+      children: [
+        { href: "/event", label: tNav("menus.events.avgNumber") },
+      ],
+    },
+    {
+      href: "/studio",
+      label: tNav("studio"),
+      children: [
+        { href: "/studio/notice", label: tNav("menus.studio.notice") },
+        { href: "/studio/devlog", label: tNav("menus.studio.devlog") },
+      ],
+    },
+  ];
 
   const openMenu = (label: string) => {
     if (closeTimeoutRef.current) {
@@ -158,12 +163,12 @@ export const Navbar = () => {
             // text-white 강제 지정 제거 -> 부모 색상 상속(currentColor)
             className="text-base font-bold uppercase tracking-[0.2em]"
           >
-            Bawky Studio
+            {tNav("brand")}
           </Link>
         </div>
 
         <ul className="flex flex-1 items-center justify-center gap-16 text-base font-bold">
-          {NAV_ITEMS.map((item) => {
+          {navItems.map((item) => {
             const isActive = pathname === item.href;
             
             // 2. 링크 색상 로직 수정 (배경색에 따라 Opacity 조절 방식 사용)
@@ -211,6 +216,8 @@ export const Navbar = () => {
             locale={switchLocale}
             // 색상 하드코딩 제거 -> opacity로 제어
             className="text-sm font-bold uppercase tracking-[0.2em] opacity-60 hover:opacity-100 transition-opacity"
+            aria-label={switchLabel}
+            title={switchLabel}
           >
             <span className="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-globe2" viewBox="0 0 16 16">
@@ -244,7 +251,7 @@ export const Navbar = () => {
           <div className="flex-1" />
 
           <div className="flex flex-1 justify-center gap-16">
-            {NAV_ITEMS.map((item) => {
+            {navItems.map((item) => {
               const isActive = activeItem === item.label;
               return (
                 <div 

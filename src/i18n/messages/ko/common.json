@@ -1,0 +1,40 @@
+{
+  "buttons": {
+    "viewDetails": "자세히 보기",
+    "playNow": "지금 플레이",
+    "learnMore": "더 알아보기",
+    "download": "다운로드",
+    "viewOnGitHub": "GitHub에서 보기",
+    "readMore": "더 읽기",
+    "submit": "제출",
+    "back": "뒤로",
+    "close": "닫기",
+    "openMenu": "메뉴 열기"
+  },
+  "labels": {
+    "version": "버전",
+    "platforms": "플랫폼",
+    "status": "상태",
+    "language": "언어",
+    "updated": "업데이트",
+    "team": "팀"
+  },
+  "states": {
+    "comingSoon": "곧 공개",
+    "loading": "로딩 중",
+    "active": "진행 중",
+    "upcoming": "예정",
+    "closed": "종료"
+  },
+  "a11y": {
+    "openNavigation": "내비게이션 열기",
+    "closeNavigation": "내비게이션 닫기",
+    "skipToContent": "본문으로 건너뛰기"
+  },
+  "actions": {
+    "switchToEnglish": "영어로 전환",
+    "switchToKorean": "한국어로 전환",
+    "switchToDark": "다크 모드로 전환",
+    "switchToLight": "라이트 모드로 전환"
+  }
+}

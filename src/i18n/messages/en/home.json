@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "games": {
+      "fatalDraw": "Betdown : FatalDraw",
+      "duelAndBet": "Betdown : Dual & Bet"
+    }
+  },
+  "featuredGames": {
+    "viewDetails": "View game details",
+    "previousLabel": "Previous game",
+    "nextLabel": "Next game",
+    "items": {
+      "fatalDraw": {
+        "title": "Betdown : FatalDraw",
+        "description": "A moody sci-fi journey built around survival and discovery.",
+        "imagePrimary": "Visual Placeholder A",
+        "imageSecondary": "Visual Placeholder B"
+      },
+      "duelAndBet": {
+        "title": "Betdown : Dual & Bet",
+        "description": "A tactical dark fantasy with weighty choices and outcomes.",
+        "imagePrimary": "Visual Placeholder A",
+        "imageSecondary": "Visual Placeholder B"
+      }
+    }
+  },
+  "notices": {
+    "title": "Notices",
+    "items": {
+      "notice01": {
+        "title": "Launch window announcement",
+        "date": "2025-03-18"
+      },
+      "notice02": {
+        "title": "Studio update: new team members",
+        "date": "2025-02-02"
+      },
+      "notice03": {
+        "title": "Closed playtest sign-ups",
+        "date": "2025-01-20"
+      },
+      "notice04": {
+        "title": "Developer diary #12",
+        "date": "2024-12-08"
+      },
+      "notice05": {
+        "title": "Community Q&A recap",
+        "date": "2024-11-11"
+      }
+    }
+  },
+  "media": {
+    "youtube": {
+      "title": "YouTube",
+      "videoOneTitle": "YouTube video placeholder 1",
+      "videoTwoTitle": "YouTube video placeholder 2"
+    },
+    "devlog": {
+      "title": "Devlog",
+      "readPost": "Read the post",
+      "items": {
+        "lighting": {
+          "title": "Lighting pass: week 06",
+          "description": "A quick look at how mood shifts with new volumetric lighting."
+        },
+        "combat": {
+          "title": "Combat tuning notes",
+          "description": "Balancing the rhythm of encounters without losing weight."
+        }
+      }
+    }
+  }
+}

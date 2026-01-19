@@ -1,0 +1,32 @@
+{
+  "hero": {
+    "title": "Join Our Team",
+    "description": "<h2>Thanks for applying!<br>Hover over each role to see more details.</h2><br><strong>Recruitment is currently closed.</strong>"
+  },
+  "categories": {
+    "development": {
+      "title": "Development",
+      "roles": {
+        "webDeveloper": "Web Developer",
+        "clientDeveloper": "Client Developer",
+        "serverDeveloper": "Server Developer"
+      }
+    },
+    "art": {
+      "title": "Art",
+      "roles": {
+        "characterArtist": "Character Artist",
+        "backgroundArtist": "Background Artist"
+      }
+    },
+    "design": {
+      "title": "Design",
+      "roles": {
+        "storyPlanner": "Story Planner",
+        "gameSystemDesigner": "Game System Designer",
+        "levelDesigner": "Level Designer"
+      }
+    }
+  },
+  "back": "← Back to About Us"
+}

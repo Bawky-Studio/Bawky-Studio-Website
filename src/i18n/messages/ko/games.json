@@ -1,0 +1,32 @@
+{
+  "list": {
+    "paginationLabel": "게임 페이지네이션",
+    "paginationItem": "{title}로 이동",
+    "viewDetails": "자세히 보기",
+    "items": {
+      "fatalDraw": {
+        "title": "Betdown: FatalDraw",
+        "description": "확률과 정밀함이 맞붙는 빠른 승부."
+      },
+      "duelAndBet": {
+        "title": "Betdown: Duel & Bet",
+        "description": "승부의 압박을 설계한 전략 대결."
+      }
+    }
+  },
+  "title": "프로젝트",
+  "main": "메인 프로젝트",
+  "side": "사이드 프로젝트",
+  "viewDetails": "자세히 보기",
+  "playNow": "지금 플레이",
+  "projects": {
+    "betdown_duel": {
+      "title": "BETDOWN: DUEL & BET",
+      "description": "서부식 마이크로 배틀 + 베팅이 결합된 스튜디오 메인 프로젝트"
+    },
+    "fataldraw": {
+      "title": "BETDOWN: FATALDRAW",
+      "description": "서부 도박 세계에서 리스크를 쏘고, 운명을 정산하라"
+    }
+  }
+}

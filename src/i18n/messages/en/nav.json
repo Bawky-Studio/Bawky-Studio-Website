@@ -1,0 +1,26 @@
+{
+  "brand": "Bawky Studio",
+  "home": "Home",
+  "games": "Games",
+  "software": "Software",
+  "events": "Events",
+  "studio": "Studio",
+  "team": "Team",
+  "about": "About",
+  "menus": {
+    "games": {
+      "fatalDraw": "Betdown: FatalDraw",
+      "duelAndBet": "Betdown: Duel & Bet"
+    },
+    "software": {
+      "kalivra": "Kalivra"
+    },
+    "events": {
+      "avgNumber": "Guess the Average"
+    },
+    "studio": {
+      "notice": "Notice",
+      "devlog": "Devlog"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "title": "PROGRAMS",
+  "description": "Download tools and utilities developed by Bawky Studio.<br />These programs are designed to enhance your workflow and creative process.",
+  "paginationLabel": "Program pagination",
+  "paginationItem": "Go to {title}",
+  "download": "Download",
+  "version": "Version",
+  "platforms": "Platforms",
+  "viewOnGitHub": "View on GitHub",
+  "macLinuxComingSoon": "Mac & Linux coming soon",
+  "empty": "No programs available at the moment. Check back soon!",
+  "comingSoon": {
+    "title": "MORE PROGRAMS COMING SOON",
+    "description": "We're constantly working on new tools and utilities.<br />Stay tuned for exciting updates!"
+  },
+  "items": {
+    "kalivra": {
+      "title": "Kalivra",
+      "description": "Kalivra is an open-source game balance analysis and simulation tool.<br />It lets you experiment with and analyze complex game balance data in a GUI environment,<br />enabling explainable, data-driven balancing rather than guesswork.",
+      "version": "1.0.1",
+      "platforms": "Windows (Mac & Linux coming soon)"
+    }
+  }
+}

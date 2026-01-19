@@ -12,7 +12,7 @@ export default function AvgNumberEventPage() {
     const [timeLeft, setTimeLeft] = useState("");
     const [progress, setProgress] = useState(100);
     const [isEventEnded, setIsEventEnded] = useState(false);
-    const t = useTranslations("event.avg-number");
+    const t = useTranslations("eventDetail");
 
     /** ✅ 이벤트 기간 설정 */
     const eventStart = new Date("2025-10-27T18:00:00+09:00");
@@ -26,7 +26,7 @@ export default function AvgNumberEventPage() {
             const diff = eventEnd.getTime() - now.getTime();
 
             if (diff <= 0) {
-                setTimeLeft(t("timer.ended"));
+                setTimeLeft(t("avgNumber.timer.ended"));
                 setProgress(0);
                 setIsEventEnded(true);
                 clearInterval(timer);
@@ -37,7 +37,17 @@ export default function AvgNumberEventPage() {
             const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
             const minutes = Math.floor((diff / (1000 * 60)) % 60);
             const seconds = Math.floor((diff / 1000) % 60);
-            setTimeLeft(`${days}d ${String(hours).padStart(2, "0")}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s left.`);
+            const hoursLabel = String(hours).padStart(2, "0");
+            const minutesLabel = String(minutes).padStart(2, "0");
+            const secondsLabel = String(seconds).padStart(2, "0");
+            setTimeLeft(
+                t("avgNumber.timer.countdown", {
+                    days,
+                    hours: hoursLabel,
+                    minutes: minutesLabel,
+                    seconds: secondsLabel,
+                })
+            );
 
             const total = eventEnd.getTime() - eventStart.getTime();
             setProgress(Math.max(0, Math.min(100, (diff / total) * 100)));
@@ -51,29 +61,29 @@ export default function AvgNumberEventPage() {
         e.preventDefault();
 
         if (!youtubeId.trim()) {
-            setMessage(t("errors.missingYoutube"));
+            setMessage(t("avgNumber.errors.missingYoutube"));
             setStatus("error");
             return;
         }
         if (!/^@[\p{L}\p{N}._-]{3,}$/u.test(youtubeId.trim())) {
-            setMessage(t("errors.invalidYoutube"));
+            setMessage(t("avgNumber.errors.invalidYoutube"));
             setStatus("error");
             return;
         }
         if (!number.trim()) {
-            setMessage(t("errors.missingNumber"));
+            setMessage(t("avgNumber.errors.missingNumber"));
             setStatus("error");
             return;
         }
 
         const num = Number(number);
         if (isNaN(num)) {
-            setMessage(t("errors.notNumber"));
+            setMessage(t("avgNumber.errors.notNumber"));
             setStatus("error");
             return;
         }
         if (num < 1 || num > 100000) {
-            setMessage(t("errors.outOfRange"));
+            setMessage(t("avgNumber.errors.outOfRange"));
             setStatus("error");
             return;
         }
@@ -89,15 +99,15 @@ export default function AvgNumberEventPage() {
 
             const data = await res.json();
             if (!data.success) {
-                setMessage(data.message || t("errors.serverError"));
+                setMessage(data.message || t("avgNumber.errors.serverError"));
                 setStatus("error");
             } else {
                 setMessage("");
-		setMessage(data.message || t("success.message"));
+		setMessage(data.message || t("avgNumber.success.message"));
                 setStatus("done");
             }
         } catch {
-            setMessage(t("errors.serverError"));
+            setMessage(t("avgNumber.errors.serverError"));
             setStatus("error");
         }
     };
@@ -107,11 +117,11 @@ export default function AvgNumberEventPage() {
             <div className="mx-auto flex w-full max-w-5xl flex-col px-6 py-20">
                 <header className="text-center">
                     <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
-                        {t("title")}
+                        {t("avgNumber.title")}
                     </h1>
                     <p
                         className="mt-6 text-base md:text-lg text-neutral-600 leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: t.raw("description") }}
+                        dangerouslySetInnerHTML={{ __html: t.raw("avgNumber.description") }}
                     />
                     <div className="mt-8 flex flex-col items-center gap-3">
                         <p className="text-sm text-neutral-500">{timeLeft}</p>
@@ -129,13 +139,13 @@ export default function AvgNumberEventPage() {
                 {isEventEnded ? (
                     <section className="mt-16 flex flex-col gap-10">
                         <h2 className="text-2xl md:text-3xl font-semibold text-center">
-                            {t("eventEnded.title")}
+                            {t("avgNumber.eventEnded.title")}
                         </h2>
 
                         <div className="w-full max-w-3xl mx-auto aspect-video rounded-2xl overflow-hidden border border-neutral-200 bg-white">
                             <iframe
                                 src={videoUrl}
-                                title="Event Result"
+                                title={t("avgNumber.eventEnded.videoTitle")}
                                 className="w-full h-full"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
@@ -145,10 +155,10 @@ export default function AvgNumberEventPage() {
                         <div className="w-full max-w-3xl mx-auto">
                             <div className="flex items-center justify-between gap-4 rounded-2xl border border-neutral-200 bg-white px-6 py-5">
                                 <span className="text-sm text-neutral-500">
-                                    {t("results.overallAverage.label")}
+                                    {t("avgNumber.results.overallAverage.label")}
                                 </span>
                                 <span className="text-xl md:text-2xl font-semibold text-neutral-900">
-                                    {t("results.overallAverage.value")}
+                                    {t("avgNumber.results.overallAverage.value")}
                                 </span>
                             </div>
                         </div>
@@ -156,25 +166,25 @@ export default function AvgNumberEventPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl mx-auto">
                             <div className="rounded-2xl border border-neutral-200 bg-white p-6">
                                 <h3 className="text-lg md:text-xl font-semibold mb-4">
-                                    {t("results.avgClosest.title")}
+                                    {t("avgNumber.results.avgClosest.title")}
                                 </h3>
                                 <div className="space-y-3 text-left">
                                     <div className="flex items-center justify-between gap-4">
-                                        <span className="text-sm text-neutral-500">{t("results.labels.participantId")}</span>
+                                        <span className="text-sm text-neutral-500">{t("avgNumber.results.labels.participantId")}</span>
                                         <span className="text-base md:text-lg font-semibold text-neutral-900 break-all">
-                                            {t("results.avgClosest.username")}
+                                            {t("avgNumber.results.avgClosest.username")}
                                         </span>
                                     </div>
                                     <div className="flex items-center justify-between gap-4">
-                                        <span className="text-sm text-neutral-500">{t("results.labels.submittedNumber")}</span>
+                                        <span className="text-sm text-neutral-500">{t("avgNumber.results.labels.submittedNumber")}</span>
                                         <span className="text-base md:text-lg font-semibold text-neutral-900">
-                                            {t("results.avgClosest.number")}
+                                            {t("avgNumber.results.avgClosest.number")}
                                         </span>
                                     </div>
                                     <div className="flex items-start justify-between gap-4">
-                                        <span className="text-sm text-neutral-500">{t("results.labels.note")}</span>
+                                        <span className="text-sm text-neutral-500">{t("avgNumber.results.labels.note")}</span>
                                         <span className="text-sm md:text-base text-neutral-600 text-right">
-                                            {t("results.avgClosest.description")}
+                                            {t("avgNumber.results.avgClosest.description")}
                                         </span>
                                     </div>
                                 </div>
@@ -182,25 +192,25 @@ export default function AvgNumberEventPage() {
 
                             <div className="rounded-2xl border border-neutral-200 bg-white p-6">
                                 <h3 className="text-lg md:text-xl font-semibold mb-4">
-                                    {t("results.lowestUnique.title")}
+                                    {t("avgNumber.results.lowestUnique.title")}
                                 </h3>
                                 <div className="space-y-3 text-left">
                                     <div className="flex items-center justify-between gap-4">
-                                        <span className="text-sm text-neutral-500">{t("results.labels.participantId")}</span>
+                                        <span className="text-sm text-neutral-500">{t("avgNumber.results.labels.participantId")}</span>
                                         <span className="text-base md:text-lg font-semibold text-neutral-900 break-all">
-                                            {t("results.lowestUnique.username")}
+                                            {t("avgNumber.results.lowestUnique.username")}
                                         </span>
                                     </div>
                                     <div className="flex items-center justify-between gap-4">
-                                        <span className="text-sm text-neutral-500">{t("results.labels.submittedNumber")}</span>
+                                        <span className="text-sm text-neutral-500">{t("avgNumber.results.labels.submittedNumber")}</span>
                                         <span className="text-base md:text-lg font-semibold text-neutral-900">
-                                            {t("results.lowestUnique.number")}
+                                            {t("avgNumber.results.lowestUnique.number")}
                                         </span>
                                     </div>
                                     <div className="flex items-start justify-between gap-4">
-                                        <span className="text-sm text-neutral-500">{t("results.labels.note")}</span>
+                                        <span className="text-sm text-neutral-500">{t("avgNumber.results.labels.note")}</span>
                                         <span className="text-sm md:text-base text-neutral-600 text-right">
-                                            {t("results.lowestUnique.description")}
+                                            {t("avgNumber.results.lowestUnique.description")}
                                         </span>
                                     </div>
                                 </div>
@@ -211,9 +221,9 @@ export default function AvgNumberEventPage() {
                     <section className="mt-16 grid gap-10 md:grid-cols-[1fr_auto] md:items-start">
                         <div className="flex flex-col gap-6">
                             <div className="text-sm text-neutral-600 border border-neutral-200 rounded-2xl p-6 bg-white">
-                                <p className="mb-2 font-semibold text-neutral-900">{t("guidelines.title")}</p>
+                                <p className="mb-2 font-semibold text-neutral-900">{t("avgNumber.guidelines.title")}</p>
                                 <ul className="list-disc list-inside space-y-1">
-                                    {t.raw("guidelines.rules").map((rule: string, i: number) => (
+                                    {t.raw("avgNumber.guidelines.rules").map((rule: string, i: number) => (
                                         <li key={i} dangerouslySetInnerHTML={{ __html: rule }} />
                                     ))}
                                 </ul>
@@ -229,7 +239,7 @@ export default function AvgNumberEventPage() {
                                 type="text"
                                 value={youtubeId}
                                 onChange={(e) => setYoutubeId(e.target.value)}
-                                placeholder={t("form.youtubePlaceholder")}
+                                placeholder={t("avgNumber.form.youtubePlaceholder")}
                                 className="w-full px-4 py-3 rounded-lg text-neutral-900 text-base bg-white border border-neutral-300 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300 placeholder:text-neutral-400"
                             />
 
@@ -237,7 +247,7 @@ export default function AvgNumberEventPage() {
                                 type="number"
                                 value={number}
                                 onChange={(e) => setNumber(e.target.value)}
-                                placeholder={t("form.numberPlaceholder")}
+                                placeholder={t("avgNumber.form.numberPlaceholder")}
                                 className="w-full px-4 py-3 rounded-lg text-neutral-900 text-base bg-white border border-neutral-300 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300 placeholder:text-neutral-400"
                                 min="0"
                                 max="100000"
@@ -248,7 +258,9 @@ export default function AvgNumberEventPage() {
                                 disabled={status === "loading" || isEventEnded}
                                 className="w-full border-neutral-300 text-neutral-900 hover:border-orange-300"
                             >
-                                {status === "loading" ? t("form.submitting") : t("form.submit")}
+                                {status === "loading"
+                                    ? t("avgNumber.form.submitting")
+                                    : t("avgNumber.form.submit")}
                             </Button>
                         </form>
                     </section>
@@ -270,7 +282,7 @@ export default function AvgNumberEventPage() {
                         size="sm"
                         className="border-neutral-300 text-neutral-900 hover:border-orange-300"
                     >
-                        {t("form.back")}
+                        {t("avgNumber.form.back")}
                     </ButtonLink>
                 </div>
             </div>

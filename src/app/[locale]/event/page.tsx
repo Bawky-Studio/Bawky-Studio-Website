@@ -23,7 +23,7 @@ const statusColor: Record<EventStatus, string> = {
 };
 
 export default function LeaderboardEvents() {
-  const t = useTranslations("event");
+  const t = useTranslations("events");
   const locale = useLocale();
 
   const rawCards = t.raw("cards") as Record<string, Omit<EventItem, "key">>;
@@ -85,11 +85,7 @@ export default function LeaderboardEvents() {
                     statusColor[ev.status]
                   }`}
                 >
-                  {ev.status === "active"
-                    ? "ACTIVE"
-                    : ev.status === "closed"
-                    ? "CLOSED"
-                    : "COMING SOON"}
+                  {t(`status.${ev.status}`)}
                 </span>
                 <div className="h-10 flex items-center">
                   {ev.status !== "upcoming" ? (
@@ -100,10 +96,10 @@ export default function LeaderboardEvents() {
                       variant="black"
                       className="border-neutral-300 text-neutral-900 hover:border-orange-300"
                     >
-                      View Event
+                      {t("viewEvent")}
                     </ButtonLink>
                   ) : (
-                    <div className="opacity-0 select-none">View Event</div>
+                    <div className="opacity-0 select-none">{t("viewEvent")}</div>
                   )}
                 </div>
               </div>

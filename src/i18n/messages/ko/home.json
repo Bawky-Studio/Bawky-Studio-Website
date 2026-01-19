@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "games": {
+      "fatalDraw": "Betdown : FatalDraw",
+      "duelAndBet": "Betdown : Dual & Bet"
+    }
+  },
+  "featuredGames": {
+    "viewDetails": "게임 자세히 보기",
+    "previousLabel": "이전 게임",
+    "nextLabel": "다음 게임",
+    "items": {
+      "fatalDraw": {
+        "title": "Betdown : FatalDraw",
+        "description": "생존과 탐험을 중심으로 한 묵직한 SF 여정.",
+        "imagePrimary": "비주얼 자리 표시 A",
+        "imageSecondary": "비주얼 자리 표시 B"
+      },
+      "duelAndBet": {
+        "title": "Betdown : Dual & Bet",
+        "description": "선택과 결과가 무게감 있게 이어지는 다크 판타지.",
+        "imagePrimary": "비주얼 자리 표시 A",
+        "imageSecondary": "비주얼 자리 표시 B"
+      }
+    }
+  },
+  "notices": {
+    "title": "공지",
+    "items": {
+      "notice01": {
+        "title": "출시 일정 안내",
+        "date": "2025-03-18"
+      },
+      "notice02": {
+        "title": "스튜디오 업데이트: 신규 팀원 합류",
+        "date": "2025-02-02"
+      },
+      "notice03": {
+        "title": "클로즈드 플레이테스트 신청",
+        "date": "2025-01-20"
+      },
+      "notice04": {
+        "title": "개발 일지 #12",
+        "date": "2024-12-08"
+      },
+      "notice05": {
+        "title": "커뮤니티 Q&A 요약",
+        "date": "2024-11-11"
+      }
+    }
+  },
+  "media": {
+    "youtube": {
+      "title": "YouTube",
+      "videoOneTitle": "YouTube 영상 자리 표시 1",
+      "videoTwoTitle": "YouTube 영상 자리 표시 2"
+    },
+    "devlog": {
+      "title": "Devlog",
+      "readPost": "글 보기",
+      "items": {
+        "lighting": {
+          "title": "라이팅 패스: 6주차",
+          "description": "볼류메트릭 라이팅으로 바뀌는 분위기를 간단히 살펴봅니다."
+        },
+        "combat": {
+          "title": "전투 튜닝 노트",
+          "description": "리듬을 잃지 않으면서 전투의 무게감을 맞춥니다."
+        }
+      }
+    }
+  }
+}

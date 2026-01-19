@@ -4,56 +4,56 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 export default function About() {
-  const t = useTranslations("about");
+  const t = useTranslations("studio");
 
   // 👥 팀 멤버 정보
   const teamMembers = [
     {
-      name: "Bawky",
-      role: "Game Designer",
+      name: t("teamMembers.bawky.name"),
+      role: t("teamMembers.bawky.role"),
       desc: t("team.BawkZilla"),
       image: "/images/team-bawkzilla.png",
       socials: [
-        { label: "GitHub", href: "https://github.com/bawky" },
-        { label: "X", href: "https://x.com/bawky" },
+        { label: t("teamMembers.bawky.socials.github"), href: "https://github.com/bawky" },
+        { label: t("teamMembers.bawky.socials.x"), href: "https://x.com/bawky" },
       ],
     },
     {
-      name: "LilHyuki",
-      role: "3D Modeler",
+      name: t("teamMembers.lilHyuki.name"),
+      role: t("teamMembers.lilHyuki.role"),
       desc: t("team.Hyuki"),
       image: "/images/team-hyuki.jpg",
       socials: [
-        { label: "Instagram", href: "https://instagram.com/lilhyuki" },
+        { label: t("teamMembers.lilHyuki.socials.instagram"), href: "https://instagram.com/lilhyuki" },
       ],
     },
     {
-      name: "Chicken_Triceps",
-      role: "Client Programmer",
+      name: t("teamMembers.chickenTriceps.name"),
+      role: t("teamMembers.chickenTriceps.role"),
       desc: t("team.Triceps"),
       image: "/images/team-triceps.png",
       socials: [
-        { label: "GitHub", href: "https://github.com/chicken-triceps" },
+        { label: t("teamMembers.chickenTriceps.socials.github"), href: "https://github.com/chicken-triceps" },
       ],
     },
     {
-      name: "Ika",
-      role: "Marketer",
+      name: t("teamMembers.ika.name"),
+      role: t("teamMembers.ika.role"),
       desc: t("team.Ika"),
       image: "/images/team-mootan.png",
       socials: [
-        { label: "Instagram", href: "https://instagram.com/ika" },
-        { label: "YouTube", href: "https://youtube.com/@ika" },
+        { label: t("teamMembers.ika.socials.instagram"), href: "https://instagram.com/ika" },
+        { label: t("teamMembers.ika.socials.youtube"), href: "https://youtube.com/@ika" },
       ],
     },
     {
-      name: "LittleBread",
-      role: "Web Developer",
+      name: t("teamMembers.littleBread.name"),
+      role: t("teamMembers.littleBread.role"),
       desc: t("team.LittleBread"),
       image: "/images/team-bread.png",
       socials: [
-        { label: "GitHub", href: "https://github.com/littlebread" },
-        { label: "Portfolio", href: "https://example.com" },
+        { label: t("teamMembers.littleBread.socials.github"), href: "https://github.com/littlebread" },
+        { label: t("teamMembers.littleBread.socials.portfolio"), href: "https://example.com" },
       ],
     },
   ];

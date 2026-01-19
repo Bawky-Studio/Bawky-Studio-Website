@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 
 export default function HomePage() {
   return (
@@ -16,16 +17,17 @@ export default function HomePage() {
 }
 
 function HeroSection() {
+  const t = useTranslations("home");
   const games = [
     {
       id: "game-01",
-      title: "Betdown : FatalDraw",
+      title: t("hero.games.fatalDraw"),
       videoSrc: "/videos/hero-placeholder-01.mp4",
       poster: "/images/hero-placeholder-01.jpg",
     },
     {
       id: "game-02",
-      title: "Betdown : Dual & Bet",
+      title: t("hero.games.duelAndBet"),
       videoSrc: "/videos/hero-placeholder-02.mp4",
       poster: "/images/hero-placeholder-02.jpg",
     },
@@ -75,16 +77,9 @@ function HeroSection() {
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
-
-      <Container>
-        <div className="relative z-10 flex min-h-[60vh] items-end py-20 md:py-28">
-          <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
-            {activeGame.title}
-          </h1>
-        </div>
-
+      <Container className="absolute inset-0 flex flex-col justify-end pb-10 pt-24 md:pt-28">
         <div
-          className="relative z-10 pb-10"
+          className="flex justify-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onFocusCapture={() => setIsPaused(true)}
@@ -94,7 +89,7 @@ function HeroSection() {
             }
           }}
         >
-          <div className="flex gap-3 overflow-x-auto pb-2">
+          <div className="flex gap-6 overflow-x-auto pb-2">
             {games.map((game, index) => {
               const isActive = index === activeIndex;
               return (
@@ -102,14 +97,14 @@ function HeroSection() {
                   key={game.id}
                   type="button"
                   onClick={() => setActiveIndex(index)}
-                  className={`min-w-[180px] rounded-md border px-4 py-3 text-left text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                  className={`px-2 py-1 text-sm font-semibold tracking-wide transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white ${
                     isActive
-                      ? "border-white/60 bg-white/10 text-white"
-                      : "border-white/10 bg-white/5 text-white/70 hover:text-white"
+                      ? "text-sandy-brown-500"
+                      : "text-white/70 hover:text-white"
                   }`}
                   aria-pressed={isActive}
                 >
-                  <div className="font-semibold">{game.title}</div>
+                  {game.title}
                 </button>
               );
             })}
@@ -121,19 +116,26 @@ function HeroSection() {
 }
 
 function GameSection() {
+  const t = useTranslations("home");
   const games = [
     {
       id: "featured-01",
-      title: "Betdown : FatalDraw",
-      description: "A moody sci-fi journey built around survival and discovery.",
-      images: ["Visual Placeholder A", "Visual Placeholder B"],
+      title: t("featuredGames.items.fatalDraw.title"),
+      description: t("featuredGames.items.fatalDraw.description"),
+      images: [
+        t("featuredGames.items.fatalDraw.imagePrimary"),
+        t("featuredGames.items.fatalDraw.imageSecondary"),
+      ],
       href: "/games/fataldraw",
     },
     {
       id: "featured-02",
-      title: "Betdown : Dual & Bet",
-      description: "A tactical dark fantasy with weighty choices and outcomes.",
-      images: ["Visual Placeholder A", "Visual Placeholder B"],
+      title: t("featuredGames.items.duelAndBet.title"),
+      description: t("featuredGames.items.duelAndBet.description"),
+      images: [
+        t("featuredGames.items.duelAndBet.imagePrimary"),
+        t("featuredGames.items.duelAndBet.imageSecondary"),
+      ],
       href: "/games/duel",
     },
   ];
@@ -167,14 +169,14 @@ function GameSection() {
             href={activeGame.href}
             className="inline-flex items-center text-base font-medium text-black underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
           >
-            View game details
+            {t("featuredGames.viewDetails")}
           </a>
           <div className="flex items-center gap-4 pt-2">
             <button
               type="button"
               onClick={handlePrevious}
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/30 text-black/80 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              aria-label="Previous game"
+              aria-label={t("featuredGames.previousLabel")}
             >
               <ArrowLeft className="h-5 w-5" />
             </button>
@@ -182,7 +184,7 @@ function GameSection() {
               type="button"
               onClick={handleNext}
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/30 text-black/80 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              aria-label="Next game"
+              aria-label={t("featuredGames.nextLabel")}
             >
               <ArrowRight className="h-5 w-5" />
             </button>
@@ -205,35 +207,26 @@ function GameSection() {
 }
 
 function NoticeSection() {
+  const t = useTranslations("home");
   const notices = [
     {
-      id: "notice-01",
-      title: "Launch window announcement",
-      date: "2025-03-18",
+      id: "notice01",
       href: "/events/notice-01",
     },
     {
-      id: "notice-02",
-      title: "Studio update: new team members",
-      date: "2025-02-02",
+      id: "notice02",
       href: "/events/notice-02",
     },
     {
-      id: "notice-03",
-      title: "Closed playtest sign-ups",
-      date: "2025-01-20",
+      id: "notice03",
       href: "/events/notice-03",
     },
     {
-      id: "notice-04",
-      title: "Developer diary #12",
-      date: "2024-12-08",
+      id: "notice04",
       href: "/events/notice-04",
     },
     {
-      id: "notice-05",
-      title: "Community Q&A recap",
-      date: "2024-11-11",
+      id: "notice05",
       href: "/events/notice-05",
     },
   ];
@@ -248,7 +241,7 @@ function NoticeSection() {
       <div className="space-y-12">
         <div className="space-y-3 text-center">
           <h2 id="news-title" className="text-2xl font-semibold md:text-4xl">
-            Notices
+            {t("notices.title")}
           </h2>
         </div>
         <ul className="divide-y divide-black/10">
@@ -258,9 +251,11 @@ function NoticeSection() {
                 href={notice.href}
                 className="flex flex-col gap-3 py-6 transition-colors hover:text-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white md:flex-row md:items-center md:justify-between"
               >
-                <span className="text-xl font-semibold md:text-2xl">{notice.title}</span>
+                <span className="text-xl font-semibold md:text-2xl">
+                  {t(`notices.items.${notice.id}.title`)}
+                </span>
                 <span className="text-xs uppercase tracking-[0.2em] text-black/50">
-                  {notice.date}
+                  {t(`notices.items.${notice.id}.date`)}
                 </span>
               </a>
             </li>
@@ -272,6 +267,7 @@ function NoticeSection() {
 }
 
 function MediaSection() {
+  const t = useTranslations("home");
   return (
     <Section
       aria-labelledby="media-title"
@@ -292,7 +288,7 @@ function MediaSection() {
         <div className="space-y-6 md:pr-6 md:self-start">
           <div className="space-y-2">
             <h2 id="media-title" className="text-2xl font-semibold md:text-4xl">
-              YouTube
+              {t("media.youtube.title")}
             </h2>
           </div>
           <div className="space-y-4">
@@ -300,7 +296,7 @@ function MediaSection() {
               <iframe
                 className="h-full w-full"
                 src="https://www.youtube.com/embed/SCPgPNry_9M?si=yYaTKD6Y6VCqJvH2"
-                title="YouTube video placeholder 1"
+                title={t("media.youtube.videoOneTitle")}
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -310,7 +306,7 @@ function MediaSection() {
               <iframe
                 className="h-full w-full"
                 src="https://www.youtube.com/embed/UxE7nesuvUM?si=NyYZdBp70_e-pb51"
-                title="YouTube video placeholder 2"
+                title={t("media.youtube.videoTwoTitle")}
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -320,31 +316,31 @@ function MediaSection() {
         </div>
         <div className="space-y-6 md:mt-16 md:pl-6 md:self-end text-right">
           <div className="space-y-2">
-            <h2 className="text-2xl font-semibold md:text-4xl">Devlog</h2>
+            <h2 className="text-2xl font-semibold md:text-4xl">{t("media.devlog.title")}</h2>
           </div>
           <div className="space-y-4">
             <article className="space-y-2">
-              <h3 className="text-lg font-semibold">Lighting pass: week 06</h3>
+              <h3 className="text-lg font-semibold">{t("media.devlog.items.lighting.title")}</h3>
               <p className="text-sm text-black/70">
-                A quick look at how mood shifts with new volumetric lighting.
+                {t("media.devlog.items.lighting.description")}
               </p>
               <a
                 href="/events"
                 className="inline-flex items-center text-sm font-medium text-black/80 underline underline-offset-4 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                Read the post
+                {t("media.devlog.readPost")}
               </a>
             </article>
             <article className="space-y-2">
-              <h3 className="text-lg font-semibold">Combat tuning notes</h3>
+              <h3 className="text-lg font-semibold">{t("media.devlog.items.combat.title")}</h3>
               <p className="text-sm text-black/70">
-                Balancing the rhythm of encounters without losing weight.
+                {t("media.devlog.items.combat.description")}
               </p>
               <a
                 href="/events"
                 className="inline-flex items-center text-sm font-medium text-black/80 underline underline-offset-4 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                Read the post
+                {t("media.devlog.readPost")}
               </a>
             </article>
           </div>
