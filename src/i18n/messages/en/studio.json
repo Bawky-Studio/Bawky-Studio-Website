@@ -1,0 +1,84 @@
+{
+  "heroTitle": "ABOUT US",
+  "intro": {
+    "text": "<strong>Bawky Studio</strong> is a small team with a big love for making games that hit differently. We believe that <accent>humor</accent> and <accent>personality</accent> are what make a game truly shine."
+  },
+  "philosophy": {
+    "title": "⚡ Philosophy",
+    "text": "We craft games that make players laugh, shout, and question everything. If it’s weird but fun. that’s our territory."
+  },
+  "focus": {
+    "title": "🎮 Focus",
+    "text": "Multiplayer, mind games, and experimental systems that make every session unpredictable. just how we like it."
+  },
+  "identity": {
+    "title": "🐔 MOTTO",
+    "text": "Make game development fun!"
+  },
+  "team": {
+    "title": "MEMBERS",
+    "BawkZilla": "Opportunities are made, not given",
+    "Hyuki": "My future self is cheering for who i am today",
+    "Triceps": "No Excuses",
+    "Ika": "Communication, Compromise, Consideration",
+    "LittleBread": "I am bread"
+  },
+  "teamMembers": {
+    "bawky": {
+      "name": "Bawky",
+      "role": "Game Designer",
+      "socials": {
+        "github": "GitHub",
+        "x": "X"
+      }
+    },
+    "lilHyuki": {
+      "name": "LilHyuki",
+      "role": "3D Modeler",
+      "socials": {
+        "instagram": "Instagram"
+      }
+    },
+    "chickenTriceps": {
+      "name": "Chicken_Triceps",
+      "role": "Client Programmer",
+      "socials": {
+        "github": "GitHub"
+      }
+    },
+    "ika": {
+      "name": "Ika",
+      "role": "Marketer",
+      "socials": {
+        "instagram": "Instagram",
+        "youtube": "YouTube"
+      }
+    },
+    "littleBread": {
+      "name": "LittleBread",
+      "role": "Web Developer",
+      "socials": {
+        "github": "GitHub",
+        "portfolio": "Portfolio"
+      }
+    }
+  },
+  "promise": {
+    "title": "OUR PROMISE",
+    "text": "“We create games that are as fun to make as they are to play”"
+  },
+  "join": {
+    "title": "JOIN OUR TEAM",
+    "text": "We're always on the lookout for developers, artists, and weird minds who love making unconventional games. If you think you’d fit right in, we’d love to hear from you.",
+    "button": "APPLY NOW →"
+  },
+  "back": "← Back to Home",
+  "devlog": {
+    "title": "DevLog",
+    "description": "This page will be added later."
+  },
+  "notice": {
+    "title": "Notice",
+    "description": "This page will be added later."
+  }
+}

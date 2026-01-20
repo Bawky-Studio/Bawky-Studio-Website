@@ -1,0 +1,84 @@
+{
+  "heroTitle": "ABOUT US",
+  "intro": {
+    "text": "<strong>Bawky Studio</strong>는 작은 팀이지만 <strong>뾰족한 재미가 있는</strong> 게임을 만듭니다.<br> 우리는 <accent>유머</accent>와 <accent>개성</accent>이 중요하다고 느끼는 팀입니다."
+  },
+  "philosophy": {
+    "title": "⚡ 철학",
+    "text": "우리는 플레이어가 웃으며 즐기고, 확실한 피처가 있는 게임을 만듭니다. 이상하지만 재밌다면, 그게 바로 우리의 의도입니다."
+  },
+  "focus": {
+    "title": "🎮 추구",
+    "text": "멀티플레이, 심리전, 그리고 예측할 수 없는 시스템, 매 세션이 새로워지는 경험을 추구합니다."
+  },
+  "identity": {
+    "title": "🐔 MOTTO",
+    "text": "게임 개발은 즐겁게!"
+  },
+  "team": {
+    "title": "MEMBERS",
+    "BawkZilla": "기회는 만드는 것이다",
+    "Hyuki": "미래의 내가 현재의 나를 응원하고있다",
+    "Triceps": "No Excuses",
+    "Ika": "Communication, Compromise, Consideration",
+    "LittleBread": "나는 빵이다"
+  },
+  "teamMembers": {
+    "bawky": {
+      "name": "Bawky",
+      "role": "게임 디자이너",
+      "socials": {
+        "github": "GitHub",
+        "x": "X"
+      }
+    },
+    "lilHyuki": {
+      "name": "LilHyuki",
+      "role": "3D 모델러",
+      "socials": {
+        "instagram": "Instagram"
+      }
+    },
+    "chickenTriceps": {
+      "name": "Chicken_Triceps",
+      "role": "클라이언트 프로그래머",
+      "socials": {
+        "github": "GitHub"
+      }
+    },
+    "ika": {
+      "name": "Ika",
+      "role": "마케터",
+      "socials": {
+        "instagram": "Instagram",
+        "youtube": "YouTube"
+      }
+    },
+    "littleBread": {
+      "name": "LittleBread",
+      "role": "웹 개발자",
+      "socials": {
+        "github": "GitHub",
+        "portfolio": "포트폴리오"
+      }
+    }
+  },
+  "promise": {
+    "title": "OUR PROMISE",
+    "text": "“게임을 제작하면서도 즐길 수 있는 게임을 만들겠습니다”"
+  },
+  "join": {
+    "title": "JOIN OUR TEAM",
+    "text": "우리는 게임을 사랑하는 개발자, 아티스트, 그리고 괴짜들을 항상 기다립니다.<br>당신이 그 중 하나라면, 우리에게 연락 주세요.",
+    "button": "지금 지원하기 →"
+  },
+  "back": "← 홈으로 돌아가기",
+  "devlog": {
+    "title": "Devlog",
+    "description": "이 페이지는 추후 공개됩니다."
+  },
+  "notice": {
+    "title": "공지",
+    "description": "이 페이지는 추후 공개됩니다."
+  }
+}

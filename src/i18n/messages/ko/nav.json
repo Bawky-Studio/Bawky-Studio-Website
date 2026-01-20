@@ -1,0 +1,26 @@
+{
+  "brand": "Bawky Studio",
+  "home": "홈",
+  "games": "게임",
+  "software": "프로그램",
+  "events": "이벤트",
+  "studio": "스튜디오",
+  "team": "팀",
+  "about": "소개",
+  "menus": {
+    "games": {
+      "fatalDraw": "Betdown: FatalDraw",
+      "duelAndBet": "Betdown: Duel & Bet"
+    },
+    "software": {
+      "kalivra": "Kalivra"
+    },
+    "events": {
+      "avgNumber": "Guess the Average"
+    },
+    "studio": {
+      "notice": "공지",
+      "devlog": "개발일지"
+    }
+  }
+}

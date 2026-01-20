@@ -1,0 +1,34 @@
+{
+  "title": "COMMUNITY EVENTS",
+  "intro": "Check out Bawky Studio's interactive experimental events!<br>Where data meets play and your choices become statistics.",
+  "back": "← Back to Main",
+  "viewEvent": "View Event",
+  "status": {
+    "active": "Active",
+    "closed": "Closed",
+    "upcoming": "Coming soon"
+  },
+  "cards": {
+    "avgNumber": {
+      "title": "Guess the Average",
+      "desc": "Two winners will be decided in one event.<br>1: The player <strong>closest to the overall average</strong><br>2: The player who picked the <strong>lowest unique number</strong><br>Both results are automatically calculated and revealed to everyone.",
+      "status": "active",
+      "link": "/event/avg-number",
+      "image": "/images/event-average.png"
+    },
+    "quickdraw": {
+      "title": "QUICKDRAW DEMO CHAMPIONSHIP (QDC)",
+      "desc": "Become the ultimate QUICKDRAW champion!",
+      "status": "upcoming",
+      "link": "#",
+      "image": "/images/event-qdc.png"
+    },
+    "mystery": {
+      "title": "Mystery",
+      "desc": "Stay tuned for the next experimental event!",
+      "status": "upcoming",
+      "link": "#",
+      "image": "/images/event-mystery.png"
+    }
+  }
+}

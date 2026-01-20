@@ -1,0 +1,32 @@
+{
+  "hero": {
+    "title": "팀에 합류하기",
+    "description": "<h2>지원해주셔서 감사합니다!<br>각 직군에 마우스를 올리면 세부 역할이 표시됩니다.</h2><br><strong>현재 모집은 종료되었습니다.</strong>"
+  },
+  "categories": {
+    "development": {
+      "title": "개발",
+      "roles": {
+        "webDeveloper": "웹 개발자",
+        "clientDeveloper": "클라이언트 개발자",
+        "serverDeveloper": "서버 개발자"
+      }
+    },
+    "art": {
+      "title": "아트",
+      "roles": {
+        "characterArtist": "캐릭터 아티스트",
+        "backgroundArtist": "배경 아티스트"
+      }
+    },
+    "design": {
+      "title": "디자인",
+      "roles": {
+        "storyPlanner": "스토리 플래너",
+        "gameSystemDesigner": "게임 시스템 디자이너",
+        "levelDesigner": "레벨 디자이너"
+      }
+    }
+  },
+  "back": "← 소개로 돌아가기"
+}

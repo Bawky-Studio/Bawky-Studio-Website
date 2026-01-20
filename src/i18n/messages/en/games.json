@@ -1,0 +1,32 @@
+{
+  "list": {
+    "paginationLabel": "Game pagination",
+    "paginationItem": "Go to {title}",
+    "viewDetails": "View details",
+    "items": {
+      "fatalDraw": {
+        "title": "Betdown: FatalDraw",
+        "description": "A fast-paced duel of probability and precision."
+      },
+      "duelAndBet": {
+        "title": "Betdown: Duel & Bet",
+        "description": "A strategic showdown built for high-stakes rounds."
+      }
+    }
+  },
+  "title": "Projects",
+  "main": "Main Project",
+  "side": "Side Project",
+  "viewDetails": "View Details",
+  "playNow": "Play Now",
+  "projects": {
+    "betdown_duel": {
+      "title": "BETDOWN: DUEL & BET",
+      "description": "A Western-style micro battle + betting hybrid. Bawky Studio’s main project"
+    },
+    "fataldraw": {
+      "title": "BETDOWN: FATALDRAW",
+      "description": "Shoot your risk and settle your fate in the Western world of bets"
+    }
+  }
+}

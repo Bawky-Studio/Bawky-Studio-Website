@@ -1,21 +1,20 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { ButtonLink } from "../../../../components/ui/Button";
 
 const games = [
   {
     id: "home-game-01",
-    title: "Betdown: FatalDraw",
-    description: "A fast-paced duel of probability and precision.",
+    key: "fatalDraw",
     backgroundImage: "/images/betdown_quickdraw.png",
     href: "/game/fataldraw",
     tone: "bg-stone-50 text-black",
   },
   {
     id: "home-game-02",
-    title: "Betdown: Duel & Bet",
-    description: "A strategic showdown built for high-stakes rounds.",
+    key: "duelAndBet",
     backgroundImage: "/images/betdown_duel.png",
     href: "/game/duel",
     tone: "bg-neutral-100 text-black",
@@ -23,9 +22,11 @@ const games = [
 ];
 
 export default function GamePage() {
+  const t = useTranslations("games");
   const containerRef = useRef<HTMLDivElement | null>(null);
   const lockRef = useRef(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -33,6 +34,19 @@ export default function GamePage() {
     handleChange();
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    const container = containerRef.current;
+    if (!container) {
+      return;
+    }
+    const containerHeight = container.clientHeight;
+    if (containerHeight === 0) {
+      return;
+    }
+    const currentIndex = Math.round(container.scrollTop / containerHeight);
+    setActiveIndex(currentIndex);
   }, []);
 
   const handleWheel = useCallback(
@@ -83,17 +97,41 @@ export default function GamePage() {
     [reduceMotion]
   );
 
+  const handleDotClick = useCallback(
+    (index: number) => {
+      const container = containerRef.current;
+      if (!container) {
+        return;
+      }
+      const sections = Array.from(
+        container.querySelectorAll<HTMLElement>("[data-game-snap='true']")
+      );
+      const target = sections[index];
+      if (!target) {
+        return;
+      }
+      target.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
+    },
+    [reduceMotion]
+  );
+
   return (
-    <main className="flex flex-col">
+    <main className="relative flex h-[100svh] flex-col overflow-hidden">
       <div
         ref={containerRef}
         onWheel={handleWheel}
-        className="h-[100svh] w-full snap-y snap-mandatory overflow-y-auto scroll-smooth motion-reduce:scroll-auto"
+        onScroll={handleScroll}
+        className="hide-scrollbar h-full w-full snap-y snap-mandatory overflow-y-auto scroll-smooth motion-reduce:scroll-auto"
       >
-        {games.map((game) => (
+        {games.map((game) => {
+          const title = t(`list.items.${game.key}.title`);
+          return (
           <section
             key={game.id}
             data-game-snap="true"
+            data-nav-theme="light"
             aria-labelledby={`${game.id}-title`}
             className={`relative min-h-[100svh] w-full snap-start overflow-hidden ${game.tone}`}
           >
@@ -109,18 +147,42 @@ export default function GamePage() {
             <div className="relative z-10 mx-auto flex h-screen w-full max-w-6xl flex-col items-center justify-center gap-10 px-6 py-16 text-center text-black md:gap-16 md:px-10 lg:px-12">
               <div className="space-y-5">
                 <h1 id={`${game.id}-title`} className="text-4xl font-semibold md:text-5xl">
-                  {game.title}
+                  {title}
                 </h1>
                 <p className="max-w-xl text-base text-black/80 md:text-lg">
-                  {game.description}
+                  {t(`list.items.${game.key}.description`)}
                 </p>
-                <ButtonLink href={game.href} size="md">
-                  View details
+                <ButtonLink href={game.href} variant="black" size="md">
+                  {t("list.viewDetails")}
                 </ButtonLink>
               </div>
             </div>
           </section>
-        ))}
+          );
+        })}
+      </div>
+      <div
+        className="fixed right-6 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-3"
+        aria-label={t("list.paginationLabel")}
+      >
+        {games.map((game, index) => {
+          const isActive = index === activeIndex;
+          const title = t(`list.items.${game.key}.title`);
+          return (
+            <button
+              key={`${game.id}-dot`}
+              type="button"
+              onClick={() => handleDotClick(index)}
+              aria-label={t("list.paginationItem", { title })}
+              aria-current={isActive ? "true" : undefined}
+              className={`h-3 w-3 rounded-full border transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sandy-brown-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
+                isActive
+                  ? "border-sandy-brown-500 bg-sandy-brown-500"
+                  : "border-parchment-50/60 bg-parchment-50 opacity-70 hover:opacity-100"
+              }`}
+            />
+          );
+        })}
       </div>
     </main>
   );

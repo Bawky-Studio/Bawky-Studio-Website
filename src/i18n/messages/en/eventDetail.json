@@ -1,0 +1,65 @@
+{
+  "avgNumber": {
+    "title": "Guess the Average",
+    "description": "The participant whose number is closest to the overall average,<br>and the one who chose the smallest unique number<br>will be officially recorded in the Bawky Studio archives.",
+    "timer": {
+      "label": "Time remaining until event ends",
+      "ended": "The event has ended.",
+      "countdown": "{days}d {hours}h {minutes}m {seconds}s left."
+    },
+    "eventEnded": {
+      "title": "Result",
+      "videoTitle": "Event Result"
+    },
+    "guidelines": {
+      "title": "📢 Before You Participate",
+      "rules": [
+        "Each IP address can participate only once.",
+        "Valid number range: 1 - 100,000.",
+        "Once you click 'Submit', your entry will be finalized immediately.",
+        "If your YouTube ID is entered incorrectly, your record may not be saved."
+      ]
+    },
+    "form": {
+      "youtubePlaceholder": "YouTube ID (@xxxx)",
+      "numberPlaceholder": "Enter your number (1–100000)",
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "back": "← Back to Event List"
+    },
+    "errors": {
+      "missingYoutube": "Please enter your YouTube ID (@xxxx).",
+      "invalidYoutube": "Invalid YouTube ID format. It must start with '@'.",
+      "missingNumber": "Please enter a number.",
+      "notNumber": "Only numeric values are allowed.",
+      "outOfRange": "Your number must be between 1 and 100000.",
+      "serverError": "A server error has occurred."
+    },
+    "success": {
+      "message": "Your entry has been submitted successfully!"
+    },
+    "results": {
+      "overallAverage": {
+        "label": "Total Average",
+        "value": "25,713.81"
+      },
+      "labels": {
+        "participantId": "Participant ID",
+        "submittedNumber": "Submitted Number",
+        "note": "Note"
+      },
+      "avgClosest": {
+        "title": "Closest Average",
+        "username": "@bookarena-iv1wg",
+        "number": "25,624",
+        "description": "Only 89 away from the average"
+      },
+      "lowestUnique": {
+        "title": "Smallest Unique",
+        "username": "@user-asdfghjklzxcvbn",
+        "number": "2",
+        "description": "Really Small"
+      }
+    }
+  }
+}

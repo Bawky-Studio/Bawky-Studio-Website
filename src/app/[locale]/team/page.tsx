@@ -17,44 +17,43 @@ type TeamCategory = {
     subRoles: SubRole[];
 };
 
-const teamCategories: TeamCategory[] = [
-    {
-        title: "Development",
-        image: "/images/team-dev.png",
-        color: "text-white", // 흰 텍스트 + 검은 외곽선
-        subRoles: [
-            { name: "Web Developer", notionUrl: "https://notion.so/example-web" },
-            { name: "Client Developer", notionUrl: "https://notion.so/example-client" },
-            { name: "Server Developer", notionUrl: "https://notion.so/example-server" },
-        ],
-    },
-    {
-        title: "Art",
-        image: "/images/team-art.png",
-        color: "text-white",
-        subRoles: [
-            { name: "Character Artist", notionUrl: "https://notion.so/example-character" },
-            { name: "Background Artist", notionUrl: "https://notion.so/example-background" },
-        ],
-    },
-    {
-        title: "Design",
-        image: "/images/team-design.png",
-        color: "text-white",
-        subRoles: [
-            { name: "Story Planner", notionUrl: "https://notion.so/example-story" },
-            { name: "Game System Designer", notionUrl: "https://notion.so/example-system" },
-            { name: "Level Designer", notionUrl: "https://notion.so/example-level" },
-        ],
-    },
-];
-
 export default function Team() {
     const locale = useLocale();
-    const t = useTranslations("teams");
+    const t = useTranslations("team");
+    const teamCategories: TeamCategory[] = [
+        {
+            title: t("categories.development.title"),
+            image: "/images/team-dev.png",
+            color: "text-white",
+            subRoles: [
+                { name: t("categories.development.roles.webDeveloper"), notionUrl: "https://notion.so/example-web" },
+                { name: t("categories.development.roles.clientDeveloper"), notionUrl: "https://notion.so/example-client" },
+                { name: t("categories.development.roles.serverDeveloper"), notionUrl: "https://notion.so/example-server" },
+            ],
+        },
+        {
+            title: t("categories.art.title"),
+            image: "/images/team-art.png",
+            color: "text-white",
+            subRoles: [
+                { name: t("categories.art.roles.characterArtist"), notionUrl: "https://notion.so/example-character" },
+                { name: t("categories.art.roles.backgroundArtist"), notionUrl: "https://notion.so/example-background" },
+            ],
+        },
+        {
+            title: t("categories.design.title"),
+            image: "/images/team-design.png",
+            color: "text-white",
+            subRoles: [
+                { name: t("categories.design.roles.storyPlanner"), notionUrl: "https://notion.so/example-story" },
+                { name: t("categories.design.roles.gameSystemDesigner"), notionUrl: "https://notion.so/example-system" },
+                { name: t("categories.design.roles.levelDesigner"), notionUrl: "https://notion.so/example-level" },
+            ],
+        },
+    ];
 
     return (
-<div className="min-h-screen bg-black flex flex-col items-center justify-center text-white text-center px-4">
+<div className="min-h-screen bg-black flex flex-col items-center justify-center text-white text-center px-4" data-nav-theme="dark">
             {/* 🎬 Title */}
             <motion.h1
                 className="text-5xl md:text-6xl font-press text-accent drop-shadow-[0_0_10px_#FBBF24] mb-10 animate-neonPulse text-center"
@@ -62,7 +61,7 @@ export default function Team() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
             >
-                JOIN OUR TEAM
+                {t("hero.title")}
             </motion.h1>
 
             <motion.p
@@ -70,7 +69,7 @@ export default function Team() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                dangerouslySetInnerHTML={{ __html: t.raw("title") }}
+                dangerouslySetInnerHTML={{ __html: t.raw("hero.description") }}
             />
 
 
@@ -149,7 +148,7 @@ export default function Team() {
                 href={`/${locale}/about`}
                 className="mt-20 text-secondary underline underline-offset-4 hover:text-accent transition-colors text-center"
             >
-                ← Back to About Us
+                {t("back")}
             </Link>
         </div>
     );

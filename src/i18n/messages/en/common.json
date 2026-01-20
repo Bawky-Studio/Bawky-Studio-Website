@@ -1,0 +1,40 @@
+{
+  "buttons": {
+    "viewDetails": "View details",
+    "playNow": "Play now",
+    "learnMore": "Learn more",
+    "download": "Download",
+    "viewOnGitHub": "View on GitHub",
+    "readMore": "Read more",
+    "submit": "Submit",
+    "back": "Back",
+    "close": "Close",
+    "openMenu": "Open menu"
+  },
+  "labels": {
+    "version": "Version",
+    "platforms": "Platforms",
+    "status": "Status",
+    "language": "Language",
+    "updated": "Updated",
+    "team": "Team"
+  },
+  "states": {
+    "comingSoon": "Coming soon",
+    "loading": "Loading",
+    "active": "Active",
+    "upcoming": "Upcoming",
+    "closed": "Closed"
+  },
+  "a11y": {
+    "openNavigation": "Open navigation",
+    "closeNavigation": "Close navigation",
+    "skipToContent": "Skip to content"
+  },
+  "actions": {
+    "switchToEnglish": "Switch to English",
+    "switchToKorean": "Switch to Korean",
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode"
+  }
+}

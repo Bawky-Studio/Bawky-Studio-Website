@@ -33,6 +33,12 @@ Bawky Studio는 아늑한 서사형 경험을 만드는 소규모 인디 팀입�
 └─ scripts/            // Deploy hooks (e.g., CodeDeploy post-step)
 ```
 
+## i18n 키 검증
+영문/국문 메시지 키 누락을 확인하려면 아래 스크립트를 실행하세요.
+
+```bash
+node scripts/check-i18n.js
+```
+
 ## 라이선스
 © Bawky Studio. All rights reserved. 
-

@@ -1,30 +1,34 @@
 "use client";
 
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
 import type { GameData } from "../_types/GameData";
 import { Button, ButtonLink } from "../../../../../components/ui/Button";
+import { useTranslations } from "next-intl";
 
 interface GameDetailProps {
     data?: GameData;
 }
 
 export default function GameDetail({ data }: GameDetailProps) {
+    const t = useTranslations("gameDetail");
 
     if (!data) {
         return (
-            <section className="min-h-screen flex items-center justify-center bg-stone-50 text-neutral-500">
-                Game not found
+            <section
+                className="min-h-screen flex items-center justify-center bg-stone-50 text-neutral-500"
+                data-nav-theme="light"
+            >
+                {t("notFound")}
             </section>
         );
     }
 
     return (
-        <section className="min-h-screen bg-stone-50 text-black">
+        <section className="min-h-screen bg-stone-50 text-black" data-nav-theme="light">
             <div className="mx-auto w-full max-w-6xl px-6 pb-24 pt-24 md:px-10 lg:px-12">
                 <header className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
                     <div className="space-y-6">
-                        <p className="text-xs uppercase tracking-[0.3em] text-black/50">Game</p>
+                        <p className="text-xs uppercase tracking-[0.3em] text-black/50">{t("badge")}</p>
                         <h1 className="text-4xl font-semibold md:text-6xl">{data.title}</h1>
                         <p className="max-w-xl text-base leading-relaxed text-black/70 md:text-lg">
                             {data.description}
@@ -36,7 +40,7 @@ export default function GameDetail({ data }: GameDetailProps) {
                                     size="md"
                                     className="border-black text-black hover:border-orange-300 hover:text-neutral-950"
                                 >
-                                    View on Steam
+                                    {t("cta.viewOnSteam")}
                                 </ButtonLink>
                             ) : (
                                 <Button
@@ -44,7 +48,7 @@ export default function GameDetail({ data }: GameDetailProps) {
                                     size="md"
                                     className="border-black text-black/40 hover:bg-transparent hover:text-black/40"
                                 >
-                                    Steam (Coming Soon)
+                                    {t("cta.steamComingSoon")}
                                 </Button>
                             )}
                         </div>
@@ -63,7 +67,7 @@ export default function GameDetail({ data }: GameDetailProps) {
                 <div className="mt-20 grid gap-16">
                     <section aria-labelledby="overview-title" className="space-y-4">
                         <h2 id="overview-title" className="text-2xl font-semibold md:text-3xl">
-                            Overview
+                            {t("sections.overview")}
                         </h2>
                         <p className="max-w-3xl text-base leading-relaxed text-black/70 md:text-lg">
                             {data.description}
@@ -72,14 +76,14 @@ export default function GameDetail({ data }: GameDetailProps) {
 
                     <section aria-labelledby="media-title" className="space-y-6">
                         <h2 id="media-title" className="text-2xl font-semibold md:text-3xl">
-                            Media
+                            {t("sections.media")}
                         </h2>
                         <div className="grid gap-6 md:grid-cols-2">
                             {data.trailerUrl && (
                                 <div className="aspect-video overflow-hidden rounded-xl bg-black/5">
                                     <iframe
                                         src={data.trailerUrl}
-                                        title={`${data.title} Trailer`}
+                                        title={t("media.trailerTitle", { title: data.title })}
                                         className="h-full w-full"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen
@@ -89,7 +93,7 @@ export default function GameDetail({ data }: GameDetailProps) {
                             <div className="overflow-hidden rounded-xl bg-black/5">
                                 <Image
                                     src={data.image}
-                                    alt={`${data.title} screenshot`}
+                                    alt={t("media.screenshotAlt", { title: data.title })}
                                     width={900}
                                     height={600}
                                     className="h-full w-full object-cover"
@@ -100,7 +104,7 @@ export default function GameDetail({ data }: GameDetailProps) {
 
                     <section aria-labelledby="features-title" className="space-y-6">
                         <h2 id="features-title" className="text-2xl font-semibold md:text-3xl">
-                            Features
+                            {t("sections.features")}
                         </h2>
                         <ul className="grid gap-3 md:grid-cols-2 text-black/70">
                             {data.features.map((feature) => (
@@ -113,18 +117,18 @@ export default function GameDetail({ data }: GameDetailProps) {
 
                     <section aria-labelledby="info-title" className="space-y-6">
                         <h2 id="info-title" className="text-2xl font-semibold md:text-3xl">
-                            Info
+                            {t("sections.info")}
                         </h2>
                         <div className="grid gap-6 md:grid-cols-3 text-black/70">
                             <div className="space-y-2">
                                 <p className="text-xs uppercase tracking-[0.2em] text-black/50">
-                                    Genre
+                                    {t("info.genre")}
                                 </p>
                                 <p className="text-base font-medium text-black">{data.genre}</p>
                             </div>
                             <div className="space-y-2">
                                 <p className="text-xs uppercase tracking-[0.2em] text-black/50">
-                                    Platform
+                                    {t("info.platform")}
                                 </p>
                                 <p className="text-base font-medium text-black">
                                     {data.platform.join(", ")}
@@ -132,7 +136,7 @@ export default function GameDetail({ data }: GameDetailProps) {
                             </div>
                             <div className="space-y-2">
                                 <p className="text-xs uppercase tracking-[0.2em] text-black/50">
-                                    Release Date
+                                    {t("info.releaseDate")}
                                 </p>
                                 <p className="text-base font-medium text-black">{data.releaseDate}</p>
                             </div>
@@ -141,7 +145,7 @@ export default function GameDetail({ data }: GameDetailProps) {
 
                     <section aria-labelledby="links-title" className="space-y-4">
                         <h2 id="links-title" className="text-2xl font-semibold md:text-3xl">
-                            Links
+                            {t("sections.links")}
                         </h2>
                         <div className="flex flex-wrap gap-3">
                             {data.steamUrl && (
@@ -150,7 +154,7 @@ export default function GameDetail({ data }: GameDetailProps) {
                                     size="md"
                                     className="border-black text-black hover:border-orange-300 hover:text-neutral-950"
                                 >
-                                    Steam Page
+                                    {t("cta.steamPage")}
                                 </ButtonLink>
                             )}
                             <ButtonLink
@@ -158,7 +162,7 @@ export default function GameDetail({ data }: GameDetailProps) {
                                 size="md"
                                 className="border-black text-black hover:border-orange-300 hover:text-neutral-950"
                             >
-                                Back to Games
+                                {t("cta.backToGames")}
                             </ButtonLink>
                         </div>
                     </section>

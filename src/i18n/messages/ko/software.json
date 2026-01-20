@@ -1,0 +1,24 @@
+{
+  "title": "프로그램",
+  "description": "Bawky Studio에서 개발한 강력한 도구입니다. 다운로드하여 설치하시면 바로 사용하실 수 있습니다.",
+  "paginationLabel": "프로그램 페이지네이션",
+  "paginationItem": "{title}로 이동",
+  "download": "다운로드",
+  "version": "버전",
+  "platforms": "플랫폼",
+  "viewOnGitHub": "GitHub에서 보기",
+  "macLinuxComingSoon": "Mac & Linux 추가 예정",
+  "empty": "현재 제공되는 프로그램이 없습니다. 곧 업데이트될 예정입니다!",
+  "comingSoon": {
+    "title": "더 많은 프로그램 개발 예정",
+    "description": "새로운 도구와 유틸리티를 지속적으로 개발하고 있습니다.<br />곧 더 많은 프로그램을 만나보실 수 있습니다!"
+  },
+  "items": {
+    "kalivra": {
+      "title": "Kalivra",
+      "description": "Kalivra는 오픈소스 게임 밸런스 분석 및 시뮬레이션 도구입니다.<br />복잡한 게임 밸런스 데이터를 GUI 환경에서 실험하고 분석하여,<br />감이 아닌 설명 가능한 데이터 기반 밸런싱을 가능하게 합니다.",
+      "version": "1.0.1",
+      "platforms": "Windows (Mac & Linux 지원 예정)"
+    }
+  }
+}

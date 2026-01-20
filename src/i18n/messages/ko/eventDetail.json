@@ -1,0 +1,65 @@
+{
+  "avgNumber": {
+    "title": "Guess the Average",
+    "description": "입력된 숫자들의 평균에 가장 가까운 사람,<br>그리고 중복되지 않은 수 중 가장 작은 값을 입력한 사람이<br>Bawky Studio 공식 기록에 등재됩니다.",
+    "timer": {
+      "label": "이벤트 종료까지 남은 시간",
+      "ended": "이벤트가 종료되었습니다.",
+      "countdown": "{days}일 {hours}시간 {minutes}분 {seconds}초 남음."
+    },
+    "eventEnded": {
+      "title": "이벤트 결과",
+      "videoTitle": "이벤트 결과"
+    },
+    "guidelines": {
+      "title": "📢 참여 전 안내사항",
+      "rules": [
+        "IP당 1회만 참여 가능합니다.",
+        "입력 가능한 숫자 범위는 1 ~ 100,000 입니다.",
+        "참여하기를 누르는 즉시 참여가 완료됩니다.",
+        "유튜브 id를 잘못 입력하면 등재되지 않을 수 있습니다."
+      ]
+    },
+    "form": {
+      "youtubePlaceholder": "YouTube ID (@xxxx)",
+      "numberPlaceholder": "숫자를 입력하세요 (1–100000)",
+      "submit": "제출",
+      "submitting": "제출 중...",
+      "back": "← 이벤트 목록으로"
+    },
+    "errors": {
+      "missingYoutube": "YouTube ID (@xxxx)를 입력해주세요.",
+      "invalidYoutube": "YouTube ID 형식이 올바르지 않습니다. '@'로 시작해야 합니다.",
+      "missingNumber": "숫자를 입력해주세요.",
+      "notNumber": "숫자만 입력 가능합니다.",
+      "outOfRange": "숫자는 1에서 100000 사이여야 합니다.",
+      "serverError": "서버 오류가 발생했습니다."
+    },
+    "success": {
+      "message": "참여가 정상적으로 제출되었습니다!"
+    },
+    "results": {
+      "overallAverage": {
+        "label": "전체 평균",
+        "value": "25,713.81"
+      },
+      "labels": {
+        "participantId": "참가자 ID",
+        "submittedNumber": "제출 숫자",
+        "note": "비고"
+      },
+      "avgClosest": {
+        "title": "Closest Average",
+        "username": "@bookarena-iv1wg",
+        "number": "25,624",
+        "description": "결과와 단 89 차이"
+      },
+      "lowestUnique": {
+        "title": "Smallest Unique",
+        "username": "@user-asdfghjklzxcvbn",
+        "number": "2",
+        "description": "유일한 최소값"
+      }
+    }
+  }
+}

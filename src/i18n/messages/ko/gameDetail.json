@@ -1,0 +1,26 @@
+{
+  "notFound": "게임을 찾을 수 없습니다",
+  "badge": "게임",
+  "cta": {
+    "viewOnSteam": "Steam에서 보기",
+    "steamComingSoon": "Steam (추후 공개)",
+    "steamPage": "Steam 페이지",
+    "backToGames": "게임 목록으로"
+  },
+  "sections": {
+    "overview": "개요",
+    "media": "미디어",
+    "features": "특징",
+    "info": "정보",
+    "links": "링크"
+  },
+  "info": {
+    "genre": "장르",
+    "platform": "플랫폼",
+    "releaseDate": "출시일"
+  },
+  "media": {
+    "trailerTitle": "{title} 트레일러",
+    "screenshotAlt": "{title} 스크린샷"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "notFound": "Game not found",
+  "badge": "Game",
+  "cta": {
+    "viewOnSteam": "View on Steam",
+    "steamComingSoon": "Steam (Coming Soon)",
+    "steamPage": "Steam Page",
+    "backToGames": "Back to Games"
+  },
+  "sections": {
+    "overview": "Overview",
+    "media": "Media",
+    "features": "Features",
+    "info": "Info",
+    "links": "Links"
+  },
+  "info": {
+    "genre": "Genre",
+    "platform": "Platform",
+    "releaseDate": "Release Date"
+  },
+  "media": {
+    "trailerTitle": "{title} Trailer",
+    "screenshotAlt": "{title} screenshot"
+  }
+}
