@@ -79,15 +79,6 @@
   },
   "notice": {
     "title": "Notice",
-    "description": "Official announcements and updates from Bawky Studio.",
-    "empty": "No notices have been posted yet.",
-    "writerLabel": "Writer",
-    "publishedLabel": "Published",
-    "backToList": "Back to Notice List"
-  },
-  "wishlist": {
-    "title": "Wishlist on Steam",
-    "description": "Follow our launch updates and add the game to your Steam wishlist.",
-    "button": "Open Steam Store"
+    "description": "This page will be added later."
   }
 }

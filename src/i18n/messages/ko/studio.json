@@ -79,15 +79,6 @@
   },
   "notice": {
     "title": "공지",
-    "description": "Bawky Studio의 공식 공지와 업데이트를 확인할 수 있습니다.",
-    "empty": "등록된 공지가 없습니다.",
-    "writerLabel": "작성자",
-    "publishedLabel": "게시일",
-    "backToList": "공지 목록으로 돌아가기"
-  },
-  "wishlist": {
-    "title": "Steam 위시리스트",
-    "description": "출시 소식을 확인하고 Steam 위시리스트에 게임을 추가해 주세요.",
-    "button": "Steam 스토어 열기"
+    "description": "이 페이지는 추후 공개됩니다."
   }
 }
