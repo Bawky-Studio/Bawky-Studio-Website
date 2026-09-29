@@ -1,0 +1,129 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ==============================
+// Enums
+// ==============================
+enum PostType {
+  NOTICE
+  BLOG
+  DEVLOG
+  COMMUNITY
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+  HIDDEN
+  DELETED
+}
+
+// ==============================
+// Models
+// ==============================
+model User {
+  id        String   @id @default(uuid())
+
+  /// Steam identity (SteamID64; keep as String to avoid JS precision issues)
+  steamid   String   @unique
+
+  // --- Steam profile enrichment (best-effort, nullable) ---
+  personaName   String?
+  profileUrl    String?
+  avatar        String?
+  avatarMedium  String?
+  avatarFull    String?
+  realName      String?
+
+  countryCode   String?  
+  stateCode     String?  
+  cityId        Int?
+
+  profileVisibilityState    Int?
+  communityVisibilityState  Int?
+  personaState              Int?       // optional: presence state
+  primaryClanId             String?     // optional
+  gameId                    String?     // optional
+  gameExtraInfo             String?     // optional
+
+  /// Steam Web API fields (unix seconds -> DateTime in app)
+  accountCreatedAt          DateTime?
+  lastLogoffAt              DateTime?
+  steamProfileUpdatedAt     DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  posts    Post[]
+  comments Comment[]
+
+  @@index([createdAt])
+}
+
+model Post {
+  id        String      @id @default(uuid()) 
+
+  type      PostType
+  status    ContentStatus @default(DRAFT)
+
+  /// For BLOG/DEVLOG/NOTICE: slug is recommended.
+  /// For COMMUNITY: slug can be null (use UUID in URL).
+  slug      String?     @unique 
+
+  title     String      
+  content   String      
+
+  /// Minimal "notice operation" fields
+  pinned    Boolean     @default(false)
+  publishedAt DateTime?
+
+  editedAt  DateTime?
+
+  authorId  String?      
+  author    User?       @relation(fields: [authorId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  comments  Comment[]
+
+  // Query patterns:
+  // - list posts by type (notice/blog/devlog/community)
+  // - public feed: type + status + publishedAt/createdAt
+  // - pinned notices
+  // - author profile: authorId + createdAt
+  @@index([type, status, publishedAt])
+  @@index([type, createdAt])
+  @@index([authorId, createdAt])
+  @@index([pinned, type, publishedAt])
+}
+
+model Comment {
+  id        String        @id @default(uuid()) 
+  status    ContentStatus @default(PUBLISHED)
+
+  postId    String 
+  post      Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  authorId  String 
+  author    User   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  content   String 
+  editedAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Query patterns:
+  // - list comments by post, latest first
+  // - list comments by user
+  @@index([postId, createdAt])
+  @@index([authorId, createdAt])
+  @@index([status, createdAt])
+}

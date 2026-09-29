@@ -82,6 +82,21 @@ export default function About() {
         </div>
       </section>
 
+      <section className="px-6 pb-8">
+        <div className="mx-auto max-w-4xl rounded-2xl border border-neutral-200 bg-white p-6 md:p-8">
+          <h2 className="text-2xl font-semibold text-neutral-900">{t("wishlist.title")}</h2>
+          <p className="mt-2 text-sm md:text-base text-neutral-600">{t("wishlist.description")}</p>
+          <a
+            href="/api/steam/wishlist"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-900 transition-colors hover:border-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-300"
+          >
+            {t("wishlist.button")}
+          </a>
+        </div>
+      </section>
+
       {/* 👥 Team Section */}
       <section className="py-16 md:py-24 flex flex-col items-center px-6">
         <motion.h2
